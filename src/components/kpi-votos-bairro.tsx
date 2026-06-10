@@ -9,6 +9,7 @@ import {
   Vote,
   ArrowDownRight,
   ArrowUpRight,
+  Search,
 } from "lucide-react";
 import { Card, KpiCard } from "@/components/ui";
 import { cn } from "@/lib/cn";
@@ -42,6 +43,10 @@ const fmtPp = (fracao: number) => {
   return `${sinal}${pp.toFixed(1).replace(".", ",")} pp`;
 };
 
+// normaliza p/ busca: sem acento, minúsculo (ex.: "saude" acha "Saúde")
+const semAcento = (s: string) =>
+  s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+
 export function KpiVotosBairro({
   bairros,
   totais,
@@ -50,6 +55,7 @@ export function KpiVotosBairro({
   totais: { 2022: number; 2024: number };
 }) {
   const [ordem, setOrdem] = useState<Ordem>("reduto");
+  const [busca, setBusca] = useState("");
 
   const ganharam = bairros.filter((b) => tendencia(b.deltaShare) === "ganho").length;
   const perderam = bairros.filter((b) => tendencia(b.deltaShare) === "perda").length;
@@ -61,6 +67,12 @@ export function KpiVotosBairro({
     if (ordem === "ganho") arr.sort((a, b) => b.deltaShare - a.deltaShare);
     return arr;
   }, [bairros, ordem]);
+
+  const visiveis = useMemo(() => {
+    const q = semAcento(busca);
+    if (!q) return ordenados;
+    return ordenados.filter((b) => semAcento(b.nome).includes(q));
+  }, [ordenados, busca]);
 
   const botoes: { id: Ordem; label: string }[] = [
     { id: "reduto", label: "Maiores redutos (2022)" },
@@ -122,6 +134,17 @@ export function KpiVotosBairro({
             {b.label}
           </button>
         ))}
+        <div className="relative ml-auto">
+          <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+          <input
+            type="search"
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+            placeholder="Buscar bairro…"
+            aria-label="Buscar bairro pelo nome"
+            className="w-48 rounded-full border border-slate-200 bg-white py-1.5 pl-8 pr-3 text-xs text-slate-700 placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
+          />
+        </div>
       </div>
 
       <div className="overflow-x-auto">
@@ -135,7 +158,7 @@ export function KpiVotosBairro({
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-50">
-            {ordenados.map((b) => {
+            {visiveis.map((b) => {
               const t = tendencia(b.deltaShare);
               const Icon =
                 t === "ganho" ? TrendingUp : t === "perda" ? TrendingDown : Minus;
@@ -179,6 +202,16 @@ export function KpiVotosBairro({
                 </tr>
               );
             })}
+            {visiveis.length === 0 && (
+              <tr>
+                <td
+                  colSpan={4}
+                  className="px-5 py-10 text-center text-sm text-slate-400"
+                >
+                  Nenhum bairro encontrado para “{busca}”.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
