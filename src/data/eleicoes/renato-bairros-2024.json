@@ -1,0 +1,1024 @@
+[
+  {
+    "bairro": "Tijuca",
+    "votos": 828,
+    "totalCargo": 98302,
+    "locais": 53,
+    "pctNoBairro": 0.00842
+  },
+  {
+    "bairro": "Bangu",
+    "votos": 233,
+    "totalCargo": 146910,
+    "locais": 52,
+    "pctNoBairro": 0.00159
+  },
+  {
+    "bairro": "Méier",
+    "votos": 211,
+    "totalCargo": 41060,
+    "locais": 19,
+    "pctNoBairro": 0.00514
+  },
+  {
+    "bairro": "Vila Isabel",
+    "votos": 200,
+    "totalCargo": 34397,
+    "locais": 14,
+    "pctNoBairro": 0.00581
+  },
+  {
+    "bairro": "Botafogo",
+    "votos": 191,
+    "totalCargo": 48073,
+    "locais": 21,
+    "pctNoBairro": 0.00397
+  },
+  {
+    "bairro": "Copacabana",
+    "votos": 189,
+    "totalCargo": 78131,
+    "locais": 66,
+    "pctNoBairro": 0.00242
+  },
+  {
+    "bairro": "Freguesia (Jacarepaguá)",
+    "votos": 189,
+    "totalCargo": 35823,
+    "locais": 13,
+    "pctNoBairro": 0.00528
+  },
+  {
+    "bairro": "Barra da Tijuca",
+    "votos": 187,
+    "totalCargo": 88177,
+    "locais": 32,
+    "pctNoBairro": 0.00212
+  },
+  {
+    "bairro": "Praça da Bandeira",
+    "votos": 186,
+    "totalCargo": 18084,
+    "locais": 7,
+    "pctNoBairro": 0.01029
+  },
+  {
+    "bairro": "Grajaú",
+    "votos": 161,
+    "totalCargo": 25857,
+    "locais": 12,
+    "pctNoBairro": 0.00623
+  },
+  {
+    "bairro": "Maracanã",
+    "votos": 153,
+    "totalCargo": 14643,
+    "locais": 8,
+    "pctNoBairro": 0.01045
+  },
+  {
+    "bairro": "Campo Grande",
+    "votos": 140,
+    "totalCargo": 226010,
+    "locais": 91,
+    "pctNoBairro": 0.00062
+  },
+  {
+    "bairro": "Taquara",
+    "votos": 136,
+    "totalCargo": 70732,
+    "locais": 27,
+    "pctNoBairro": 0.00192
+  },
+  {
+    "bairro": "Recreio dos Bandeirantes",
+    "votos": 132,
+    "totalCargo": 37366,
+    "locais": 11,
+    "pctNoBairro": 0.00353
+  },
+  {
+    "bairro": "Rio Comprido",
+    "votos": 115,
+    "totalCargo": 22591,
+    "locais": 7,
+    "pctNoBairro": 0.00509
+  },
+  {
+    "bairro": "Andaraí",
+    "votos": 108,
+    "totalCargo": 16282,
+    "locais": 7,
+    "pctNoBairro": 0.00663
+  },
+  {
+    "bairro": "Laranjeiras",
+    "votos": 107,
+    "totalCargo": 25142,
+    "locais": 8,
+    "pctNoBairro": 0.00426
+  },
+  {
+    "bairro": "Realengo",
+    "votos": 96,
+    "totalCargo": 111229,
+    "locais": 43,
+    "pctNoBairro": 0.00086
+  },
+  {
+    "bairro": "Cachambi",
+    "votos": 95,
+    "totalCargo": 25316,
+    "locais": 14,
+    "pctNoBairro": 0.00375
+  },
+  {
+    "bairro": "Centro",
+    "votos": 94,
+    "totalCargo": 33191,
+    "locais": 19,
+    "pctNoBairro": 0.00283
+  },
+  {
+    "bairro": "Flamengo",
+    "votos": 88,
+    "totalCargo": 28041,
+    "locais": 9,
+    "pctNoBairro": 0.00314
+  },
+  {
+    "bairro": "Anil",
+    "votos": 86,
+    "totalCargo": 29596,
+    "locais": 12,
+    "pctNoBairro": 0.00291
+  },
+  {
+    "bairro": "Pechincha",
+    "votos": 83,
+    "totalCargo": 22226,
+    "locais": 8,
+    "pctNoBairro": 0.00373
+  },
+  {
+    "bairro": "Engenho de Dentro",
+    "votos": 82,
+    "totalCargo": 30170,
+    "locais": 13,
+    "pctNoBairro": 0.00272
+  },
+  {
+    "bairro": "Jacarepaguá",
+    "votos": 81,
+    "totalCargo": 36979,
+    "locais": 12,
+    "pctNoBairro": 0.00219
+  },
+  {
+    "bairro": "Engenho Novo",
+    "votos": 80,
+    "totalCargo": 23546,
+    "locais": 8,
+    "pctNoBairro": 0.0034
+  },
+  {
+    "bairro": "Ipanema",
+    "votos": 76,
+    "totalCargo": 24499,
+    "locais": 11,
+    "pctNoBairro": 0.0031
+  },
+  {
+    "bairro": "Olaria",
+    "votos": 74,
+    "totalCargo": 31692,
+    "locais": 17,
+    "pctNoBairro": 0.00233
+  },
+  {
+    "bairro": "Praça Seca",
+    "votos": 64,
+    "totalCargo": 37800,
+    "locais": 17,
+    "pctNoBairro": 0.00169
+  },
+  {
+    "bairro": "São Cristóvão",
+    "votos": 62,
+    "totalCargo": 27626,
+    "locais": 11,
+    "pctNoBairro": 0.00224
+  },
+  {
+    "bairro": "Irajá",
+    "votos": 61,
+    "totalCargo": 70317,
+    "locais": 29,
+    "pctNoBairro": 0.00087
+  },
+  {
+    "bairro": "Catete",
+    "votos": 57,
+    "totalCargo": 17980,
+    "locais": 3,
+    "pctNoBairro": 0.00317
+  },
+  {
+    "bairro": "Bonsucesso",
+    "votos": 54,
+    "totalCargo": 54100,
+    "locais": 14,
+    "pctNoBairro": 0.001
+  },
+  {
+    "bairro": "Penha",
+    "votos": 54,
+    "totalCargo": 46588,
+    "locais": 16,
+    "pctNoBairro": 0.00116
+  },
+  {
+    "bairro": "Piedade",
+    "votos": 51,
+    "totalCargo": 22541,
+    "locais": 8,
+    "pctNoBairro": 0.00226
+  },
+  {
+    "bairro": "Brás de Pina",
+    "votos": 50,
+    "totalCargo": 29944,
+    "locais": 16,
+    "pctNoBairro": 0.00167
+  },
+  {
+    "bairro": "Vila da Penha",
+    "votos": 49,
+    "totalCargo": 29740,
+    "locais": 14,
+    "pctNoBairro": 0.00165
+  },
+  {
+    "bairro": "Bento Ribeiro",
+    "votos": 49,
+    "totalCargo": 23863,
+    "locais": 10,
+    "pctNoBairro": 0.00205
+  },
+  {
+    "bairro": "Pavuna",
+    "votos": 48,
+    "totalCargo": 42685,
+    "locais": 20,
+    "pctNoBairro": 0.00112
+  },
+  {
+    "bairro": "Tanque",
+    "votos": 45,
+    "totalCargo": 22087,
+    "locais": 9,
+    "pctNoBairro": 0.00204
+  },
+  {
+    "bairro": "Leblon",
+    "votos": 42,
+    "totalCargo": 22426,
+    "locais": 11,
+    "pctNoBairro": 0.00187
+  },
+  {
+    "bairro": "Marechal Hermes",
+    "votos": 41,
+    "totalCargo": 30763,
+    "locais": 14,
+    "pctNoBairro": 0.00133
+  },
+  {
+    "bairro": "Jardim Guanabara",
+    "votos": 41,
+    "totalCargo": 18542,
+    "locais": 7,
+    "pctNoBairro": 0.00221
+  },
+  {
+    "bairro": "Madureira",
+    "votos": 40,
+    "totalCargo": 34286,
+    "locais": 19,
+    "pctNoBairro": 0.00117
+  },
+  {
+    "bairro": "Inhaúma",
+    "votos": 40,
+    "totalCargo": 24742,
+    "locais": 14,
+    "pctNoBairro": 0.00162
+  },
+  {
+    "bairro": "Vila Valqueire",
+    "votos": 39,
+    "totalCargo": 16605,
+    "locais": 7,
+    "pctNoBairro": 0.00235
+  },
+  {
+    "bairro": "Santa Cruz",
+    "votos": 38,
+    "totalCargo": 120861,
+    "locais": 44,
+    "pctNoBairro": 0.00031
+  },
+  {
+    "bairro": "Gávea",
+    "votos": 36,
+    "totalCargo": 27228,
+    "locais": 15,
+    "pctNoBairro": 0.00132
+  },
+  {
+    "bairro": "Curicica",
+    "votos": 36,
+    "totalCargo": 31942,
+    "locais": 9,
+    "pctNoBairro": 0.00113
+  },
+  {
+    "bairro": "Cascadura",
+    "votos": 35,
+    "totalCargo": 20615,
+    "locais": 10,
+    "pctNoBairro": 0.0017
+  },
+  {
+    "bairro": "Humaitá",
+    "votos": 35,
+    "totalCargo": 8675,
+    "locais": 2,
+    "pctNoBairro": 0.00403
+  },
+  {
+    "bairro": "Benfica",
+    "votos": 34,
+    "totalCargo": 27636,
+    "locais": 9,
+    "pctNoBairro": 0.00123
+  },
+  {
+    "bairro": "Lins de Vasconcelos",
+    "votos": 34,
+    "totalCargo": 10053,
+    "locais": 3,
+    "pctNoBairro": 0.00338
+  },
+  {
+    "bairro": "Todos os Santos",
+    "votos": 31,
+    "totalCargo": 6689,
+    "locais": 3,
+    "pctNoBairro": 0.00463
+  },
+  {
+    "bairro": "Santo Cristo",
+    "votos": 31,
+    "totalCargo": 3827,
+    "locais": 1,
+    "pctNoBairro": 0.0081
+  },
+  {
+    "bairro": "Padre Miguel",
+    "votos": 30,
+    "totalCargo": 36522,
+    "locais": 17,
+    "pctNoBairro": 0.00082
+  },
+  {
+    "bairro": "Ramos",
+    "votos": 30,
+    "totalCargo": 47753,
+    "locais": 18,
+    "pctNoBairro": 0.00063
+  },
+  {
+    "bairro": "Riachuelo",
+    "votos": 30,
+    "totalCargo": 9165,
+    "locais": 4,
+    "pctNoBairro": 0.00327
+  },
+  {
+    "bairro": "Lagoa",
+    "votos": 29,
+    "totalCargo": 12386,
+    "locais": 5,
+    "pctNoBairro": 0.00234
+  },
+  {
+    "bairro": "Pilares",
+    "votos": 29,
+    "totalCargo": 19803,
+    "locais": 10,
+    "pctNoBairro": 0.00146
+  },
+  {
+    "bairro": "Senador Camará",
+    "votos": 27,
+    "totalCargo": 32978,
+    "locais": 12,
+    "pctNoBairro": 0.00082
+  },
+  {
+    "bairro": "Guaratiba",
+    "votos": 26,
+    "totalCargo": 66529,
+    "locais": 24,
+    "pctNoBairro": 0.00039
+  },
+  {
+    "bairro": "Quintino Bocaiúva",
+    "votos": 26,
+    "totalCargo": 23343,
+    "locais": 8,
+    "pctNoBairro": 0.00111
+  },
+  {
+    "bairro": "Higienópolis",
+    "votos": 26,
+    "totalCargo": 19919,
+    "locais": 8,
+    "pctNoBairro": 0.00131
+  },
+  {
+    "bairro": "Jardim América",
+    "votos": 25,
+    "totalCargo": 22515,
+    "locais": 8,
+    "pctNoBairro": 0.00111
+  },
+  {
+    "bairro": "Penha Circular",
+    "votos": 25,
+    "totalCargo": 18170,
+    "locais": 10,
+    "pctNoBairro": 0.00138
+  },
+  {
+    "bairro": "Rocha Miranda",
+    "votos": 24,
+    "totalCargo": 24048,
+    "locais": 9,
+    "pctNoBairro": 0.001
+  },
+  {
+    "bairro": "Santa Teresa",
+    "votos": 24,
+    "totalCargo": 9281,
+    "locais": 2,
+    "pctNoBairro": 0.00259
+  },
+  {
+    "bairro": "Paciência",
+    "votos": 23,
+    "totalCargo": 71069,
+    "locais": 23,
+    "pctNoBairro": 0.00032
+  },
+  {
+    "bairro": "Coelho Neto",
+    "votos": 23,
+    "totalCargo": 27620,
+    "locais": 11,
+    "pctNoBairro": 0.00083
+  },
+  {
+    "bairro": "Maria da Graça",
+    "votos": 22,
+    "totalCargo": 10615,
+    "locais": 4,
+    "pctNoBairro": 0.00207
+  },
+  {
+    "bairro": "Jardim Botânico",
+    "votos": 22,
+    "totalCargo": 10289,
+    "locais": 6,
+    "pctNoBairro": 0.00214
+  },
+  {
+    "bairro": "Vicente de Carvalho",
+    "votos": 21,
+    "totalCargo": 13604,
+    "locais": 5,
+    "pctNoBairro": 0.00154
+  },
+  {
+    "bairro": "Rocha",
+    "votos": 21,
+    "totalCargo": 12776,
+    "locais": 6,
+    "pctNoBairro": 0.00164
+  },
+  {
+    "bairro": "Moneró",
+    "votos": 21,
+    "totalCargo": 7406,
+    "locais": 2,
+    "pctNoBairro": 0.00284
+  },
+  {
+    "bairro": "Guadalupe",
+    "votos": 21,
+    "totalCargo": 28552,
+    "locais": 16,
+    "pctNoBairro": 0.00074
+  },
+  {
+    "bairro": "Alto da Boa Vista",
+    "votos": 20,
+    "totalCargo": 7654,
+    "locais": 6,
+    "pctNoBairro": 0.00261
+  },
+  {
+    "bairro": "Camorim",
+    "votos": 20,
+    "totalCargo": 10387,
+    "locais": 4,
+    "pctNoBairro": 0.00193
+  },
+  {
+    "bairro": "Cordovil",
+    "votos": 19,
+    "totalCargo": 25405,
+    "locais": 13,
+    "pctNoBairro": 0.00075
+  },
+  {
+    "bairro": "Encantado",
+    "votos": 19,
+    "totalCargo": 7482,
+    "locais": 3,
+    "pctNoBairro": 0.00254
+  },
+  {
+    "bairro": "Santíssimo",
+    "votos": 19,
+    "totalCargo": 30778,
+    "locais": 10,
+    "pctNoBairro": 0.00062
+  },
+  {
+    "bairro": "Galeão",
+    "votos": 18,
+    "totalCargo": 16623,
+    "locais": 5,
+    "pctNoBairro": 0.00108
+  },
+  {
+    "bairro": "Magalhães Bastos",
+    "votos": 18,
+    "totalCargo": 17441,
+    "locais": 7,
+    "pctNoBairro": 0.00103
+  },
+  {
+    "bairro": "Osvaldo Cruz",
+    "votos": 17,
+    "totalCargo": 16500,
+    "locais": 8,
+    "pctNoBairro": 0.00103
+  },
+  {
+    "bairro": "Engenho da Rainha",
+    "votos": 17,
+    "totalCargo": 14205,
+    "locais": 6,
+    "pctNoBairro": 0.0012
+  },
+  {
+    "bairro": "Cosme Velho",
+    "votos": 17,
+    "totalCargo": 4997,
+    "locais": 1,
+    "pctNoBairro": 0.0034
+  },
+  {
+    "bairro": "Glória",
+    "votos": 17,
+    "totalCargo": 5786,
+    "locais": 2,
+    "pctNoBairro": 0.00294
+  },
+  {
+    "bairro": "Gardênia Azul",
+    "votos": 17,
+    "totalCargo": 12149,
+    "locais": 4,
+    "pctNoBairro": 0.0014
+  },
+  {
+    "bairro": "Cacuia",
+    "votos": 17,
+    "totalCargo": 4934,
+    "locais": 3,
+    "pctNoBairro": 0.00345
+  },
+  {
+    "bairro": "Gamboa",
+    "votos": 16,
+    "totalCargo": 5779,
+    "locais": 3,
+    "pctNoBairro": 0.00277
+  },
+  {
+    "bairro": "Portuguesa",
+    "votos": 16,
+    "totalCargo": 13950,
+    "locais": 4,
+    "pctNoBairro": 0.00115
+  },
+  {
+    "bairro": "Ricardo de Albuquerque",
+    "votos": 16,
+    "totalCargo": 15446,
+    "locais": 8,
+    "pctNoBairro": 0.00104
+  },
+  {
+    "bairro": "Anchieta",
+    "votos": 15,
+    "totalCargo": 29137,
+    "locais": 10,
+    "pctNoBairro": 0.00051
+  },
+  {
+    "bairro": "São Conrado",
+    "votos": 15,
+    "totalCargo": 20183,
+    "locais": 8,
+    "pctNoBairro": 0.00074
+  },
+  {
+    "bairro": "Vargem Pequena",
+    "votos": 15,
+    "totalCargo": 6924,
+    "locais": 4,
+    "pctNoBairro": 0.00217
+  },
+  {
+    "bairro": "Jardim Sulacap",
+    "votos": 15,
+    "totalCargo": 8774,
+    "locais": 3,
+    "pctNoBairro": 0.00171
+  },
+  {
+    "bairro": "Estácio",
+    "votos": 15,
+    "totalCargo": 2468,
+    "locais": 1,
+    "pctNoBairro": 0.00608
+  },
+  {
+    "bairro": "Cosmos",
+    "votos": 14,
+    "totalCargo": 31587,
+    "locais": 10,
+    "pctNoBairro": 0.00044
+  },
+  {
+    "bairro": "Jacaré",
+    "votos": 14,
+    "totalCargo": 8879,
+    "locais": 2,
+    "pctNoBairro": 0.00158
+  },
+  {
+    "bairro": "Cidade de Deus",
+    "votos": 12,
+    "totalCargo": 21883,
+    "locais": 7,
+    "pctNoBairro": 0.00055
+  },
+  {
+    "bairro": "Vila Kosmos",
+    "votos": 12,
+    "totalCargo": 3792,
+    "locais": 1,
+    "pctNoBairro": 0.00316
+  },
+  {
+    "bairro": "Colégio",
+    "votos": 12,
+    "totalCargo": 13346,
+    "locais": 4,
+    "pctNoBairro": 0.0009
+  },
+  {
+    "bairro": "Leme",
+    "votos": 11,
+    "totalCargo": 6859,
+    "locais": 3,
+    "pctNoBairro": 0.0016
+  },
+  {
+    "bairro": "São Francisco Xavier",
+    "votos": 11,
+    "totalCargo": 6357,
+    "locais": 2,
+    "pctNoBairro": 0.00173
+  },
+  {
+    "bairro": "Água Santa",
+    "votos": 11,
+    "totalCargo": 2428,
+    "locais": 1,
+    "pctNoBairro": 0.00453
+  },
+  {
+    "bairro": "Jardim Carioca",
+    "votos": 11,
+    "totalCargo": 4442,
+    "locais": 2,
+    "pctNoBairro": 0.00248
+  },
+  {
+    "bairro": "Honório Gurgel",
+    "votos": 10,
+    "totalCargo": 12210,
+    "locais": 4,
+    "pctNoBairro": 0.00082
+  },
+  {
+    "bairro": "Manguinhos",
+    "votos": 10,
+    "totalCargo": 11751,
+    "locais": 5,
+    "pctNoBairro": 0.00085
+  },
+  {
+    "bairro": "Itanhangá",
+    "votos": 9,
+    "totalCargo": 15639,
+    "locais": 9,
+    "pctNoBairro": 0.00058
+  },
+  {
+    "bairro": "Turiaçú",
+    "votos": 8,
+    "totalCargo": 8685,
+    "locais": 4,
+    "pctNoBairro": 0.00092
+  },
+  {
+    "bairro": "Inhoaíba",
+    "votos": 8,
+    "totalCargo": 30601,
+    "locais": 15,
+    "pctNoBairro": 0.00026
+  },
+  {
+    "bairro": "Maré",
+    "votos": 8,
+    "totalCargo": 14132,
+    "locais": 4,
+    "pctNoBairro": 0.00057
+  },
+  {
+    "bairro": "Cocotá",
+    "votos": 8,
+    "totalCargo": 9056,
+    "locais": 4,
+    "pctNoBairro": 0.00088
+  },
+  {
+    "bairro": "Ribeira",
+    "votos": 8,
+    "totalCargo": 5756,
+    "locais": 2,
+    "pctNoBairro": 0.00139
+  },
+  {
+    "bairro": "Vigário Geral",
+    "votos": 8,
+    "totalCargo": 14538,
+    "locais": 7,
+    "pctNoBairro": 0.00055
+  },
+  {
+    "bairro": "Sepetiba",
+    "votos": 7,
+    "totalCargo": 26821,
+    "locais": 8,
+    "pctNoBairro": 0.00026
+  },
+  {
+    "bairro": "Del Castilho",
+    "votos": 7,
+    "totalCargo": 8893,
+    "locais": 4,
+    "pctNoBairro": 0.00079
+  },
+  {
+    "bairro": "Tauá",
+    "votos": 7,
+    "totalCargo": 6805,
+    "locais": 3,
+    "pctNoBairro": 0.00103
+  },
+  {
+    "bairro": "Senador Vasconcelos",
+    "votos": 7,
+    "totalCargo": 9817,
+    "locais": 4,
+    "pctNoBairro": 0.00071
+  },
+  {
+    "bairro": "Bancários",
+    "votos": 7,
+    "totalCargo": 10612,
+    "locais": 3,
+    "pctNoBairro": 0.00066
+  },
+  {
+    "bairro": "Freguesia (Ilha)",
+    "votos": 7,
+    "totalCargo": 10271,
+    "locais": 3,
+    "pctNoBairro": 0.00068
+  },
+  {
+    "bairro": "Campo dos Afonsos",
+    "votos": 7,
+    "totalCargo": 2797,
+    "locais": 2,
+    "pctNoBairro": 0.0025
+  },
+  {
+    "bairro": "Campinho",
+    "votos": 6,
+    "totalCargo": 5066,
+    "locais": 2,
+    "pctNoBairro": 0.00118
+  },
+  {
+    "bairro": "Caju",
+    "votos": 6,
+    "totalCargo": 7943,
+    "locais": 3,
+    "pctNoBairro": 0.00076
+  },
+  {
+    "bairro": "Cavalcanti",
+    "votos": 6,
+    "totalCargo": 8793,
+    "locais": 5,
+    "pctNoBairro": 0.00068
+  },
+  {
+    "bairro": "Cidade Nova",
+    "votos": 6,
+    "totalCargo": 1595,
+    "locais": 1,
+    "pctNoBairro": 0.00376
+  },
+  {
+    "bairro": "Parque Anchieta",
+    "votos": 5,
+    "totalCargo": 15733,
+    "locais": 6,
+    "pctNoBairro": 0.00032
+  },
+  {
+    "bairro": "Vaz Lobo",
+    "votos": 5,
+    "totalCargo": 4873,
+    "locais": 2,
+    "pctNoBairro": 0.00103
+  },
+  {
+    "bairro": "Vidigal",
+    "votos": 5,
+    "totalCargo": 7651,
+    "locais": 2,
+    "pctNoBairro": 0.00065
+  },
+  {
+    "bairro": "Vargem Grande",
+    "votos": 4,
+    "totalCargo": 9771,
+    "locais": 4,
+    "pctNoBairro": 0.00041
+  },
+  {
+    "bairro": "Costa Barros",
+    "votos": 3,
+    "totalCargo": 11715,
+    "locais": 4,
+    "pctNoBairro": 0.00026
+  },
+  {
+    "bairro": "Zumbi",
+    "votos": 3,
+    "totalCargo": 5398,
+    "locais": 2,
+    "pctNoBairro": 0.00056
+  },
+  {
+    "bairro": "Tomás Coelho",
+    "votos": 2,
+    "totalCargo": 4257,
+    "locais": 2,
+    "pctNoBairro": 0.00047
+  },
+  {
+    "bairro": "Abolição",
+    "votos": 2,
+    "totalCargo": 2602,
+    "locais": 1,
+    "pctNoBairro": 0.00077
+  },
+  {
+    "bairro": "Deodoro",
+    "votos": 2,
+    "totalCargo": 2909,
+    "locais": 2,
+    "pctNoBairro": 0.00069
+  },
+  {
+    "bairro": "Parada de Lucas",
+    "votos": 2,
+    "totalCargo": 3793,
+    "locais": 2,
+    "pctNoBairro": 0.00053
+  },
+  {
+    "bairro": "Pedra de Guaratiba",
+    "votos": 2,
+    "totalCargo": 3868,
+    "locais": 1,
+    "pctNoBairro": 0.00052
+  },
+  {
+    "bairro": "Cidade Universitária",
+    "votos": 2,
+    "totalCargo": 967,
+    "locais": 1,
+    "pctNoBairro": 0.00207
+  },
+  {
+    "bairro": "Praia da Bandeira",
+    "votos": 2,
+    "totalCargo": 2354,
+    "locais": 1,
+    "pctNoBairro": 0.00085
+  },
+  {
+    "bairro": "Engenheiro Leal",
+    "votos": 2,
+    "totalCargo": 2129,
+    "locais": 2,
+    "pctNoBairro": 0.00094
+  },
+  {
+    "bairro": "Vila Militar",
+    "votos": 1,
+    "totalCargo": 2793,
+    "locais": 2,
+    "pctNoBairro": 0.00036
+  },
+  {
+    "bairro": "Saúde",
+    "votos": 1,
+    "totalCargo": 1988,
+    "locais": 1,
+    "pctNoBairro": 0.0005
+  },
+  {
+    "bairro": "Paquetá",
+    "votos": 1,
+    "totalCargo": 2006,
+    "locais": 1,
+    "pctNoBairro": 0.0005
+  },
+  {
+    "bairro": "Barros Filho",
+    "votos": 0,
+    "totalCargo": 6808,
+    "locais": 4,
+    "pctNoBairro": 0
+  },
+  {
+    "bairro": "Parque Colúmbia",
+    "votos": 0,
+    "totalCargo": 3363,
+    "locais": 2,
+    "pctNoBairro": 0
+  },
+  {
+    "bairro": "Acari",
+    "votos": 0,
+    "totalCargo": 5377,
+    "locais": 2,
+    "pctNoBairro": 0
+  }
+]

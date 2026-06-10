@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dados BRUTOS do TSE (~1,8 GB) — NÃO versionar. Reproduza os datasets com:
+#   node scripts/processar-tse.mjs
+# Os datasets derivados (leves) ficam versionados em src/data/eleicoes/.
+/data/
+/votacao_candidato_munzona_2024/
+/votacao_partido_munzona_2022/
+/votacao_secao_2022_RJ/
+/votacao_secao_2024_RJ/
+/Votos por Zona 2022/
+/Votos por Zona 2024/
+
+# Cache do scraper RUACEP (reproduzível com scripts/scrape-ceps-rj.mjs)
+/scripts/.cache-ceps/
+
+# Lixo do macOS (AppleDouble / metadados de volume externo)
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes

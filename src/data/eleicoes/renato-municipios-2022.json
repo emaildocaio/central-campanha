@@ -1,0 +1,922 @@
+[
+  {
+    "cdTse": "60011",
+    "nome": "RIO DE JANEIRO",
+    "nomeOficial": "Rio de Janeiro",
+    "ibge": "3304557",
+    "regiao": "Metropolitana",
+    "votos": 13704,
+    "validos": 3191424,
+    "pctValidos": 0.004294
+  },
+  {
+    "cdTse": "58696",
+    "nome": "NOVA IGUAÇU",
+    "nomeOficial": "Nova Iguaçu",
+    "ibge": "3303500",
+    "regiao": "Baixada Fluminense",
+    "votos": 602,
+    "validos": 413682,
+    "pctValidos": 0.001455
+  },
+  {
+    "cdTse": "58335",
+    "nome": "DUQUE DE CAXIAS",
+    "nomeOficial": "Duque de Caxias",
+    "ibge": "3301702",
+    "regiao": "Baixada Fluminense",
+    "votos": 524,
+    "validos": 432128,
+    "pctValidos": 0.001213
+  },
+  {
+    "cdTse": "58653",
+    "nome": "NITERÓI",
+    "nomeOficial": "Niterói",
+    "ibge": "3303302",
+    "regiao": "Metropolitana",
+    "votos": 452,
+    "validos": 289476,
+    "pctValidos": 0.001561
+  },
+  {
+    "cdTse": "58971",
+    "nome": "SÃO GONÇALO",
+    "nomeOficial": "São Gonçalo",
+    "ibge": "3304904",
+    "regiao": "Metropolitana",
+    "votos": 393,
+    "validos": 446200,
+    "pctValidos": 0.000881
+  },
+  {
+    "cdTse": "59013",
+    "nome": "SÃO JOÃO DE MERITI",
+    "nomeOficial": "São João de Meriti",
+    "ibge": "3305109",
+    "regiao": "Baixada Fluminense",
+    "votos": 285,
+    "validos": 247301,
+    "pctValidos": 0.001152
+  },
+  {
+    "cdTse": "58041",
+    "nome": "BELFORD ROXO",
+    "nomeOficial": "Belford Roxo",
+    "ibge": "3300456",
+    "regiao": "Baixada Fluminense",
+    "votos": 195,
+    "validos": 219440,
+    "pctValidos": 0.000889
+  },
+  {
+    "cdTse": "59250",
+    "nome": "VOLTA REDONDA",
+    "nomeOficial": "Volta Redonda",
+    "ibge": "3306305",
+    "regiao": "Médio Paraíba",
+    "votos": 195,
+    "validos": 156735,
+    "pctValidos": 0.001244
+  },
+  {
+    "cdTse": "58190",
+    "nome": "CAMPOS DOS GOYTACAZES",
+    "nomeOficial": "Campos dos Goytacazes",
+    "ibge": "3301009",
+    "regiao": "Norte Fluminense",
+    "votos": 175,
+    "validos": 229516,
+    "pctValidos": 0.000762
+  },
+  {
+    "cdTse": "58130",
+    "nome": "CABO FRIO",
+    "nomeOficial": "Cabo Frio",
+    "ibge": "3300704",
+    "regiao": "Região dos Lagos",
+    "votos": 155,
+    "validos": 112420,
+    "pctValidos": 0.001379
+  },
+  {
+    "cdTse": "59153",
+    "nome": "TERESÓPOLIS",
+    "nomeOficial": "Teresópolis",
+    "ibge": "3305802",
+    "regiao": "Serrana",
+    "votos": 150,
+    "validos": 83836,
+    "pctValidos": 0.001789
+  },
+  {
+    "cdTse": "58637",
+    "nome": "NILÓPOLIS",
+    "nomeOficial": "Nilópolis",
+    "ibge": "3303203",
+    "regiao": "Baixada Fluminense",
+    "votos": 150,
+    "validos": 92062,
+    "pctValidos": 0.001629
+  },
+  {
+    "cdTse": "58491",
+    "nome": "MAGÉ",
+    "nomeOficial": "Magé",
+    "ibge": "3302502",
+    "regiao": "Metropolitana",
+    "votos": 138,
+    "validos": 131418,
+    "pctValidos": 0.00105
+  },
+  {
+    "cdTse": "58203",
+    "nome": "RIO DAS OSTRAS",
+    "nomeOficial": "Rio das Ostras",
+    "ibge": "3304524",
+    "regiao": "Região dos Lagos",
+    "votos": 135,
+    "validos": 60501,
+    "pctValidos": 0.002231
+  },
+  {
+    "cdTse": "58777",
+    "nome": "PETRÓPOLIS",
+    "nomeOficial": "Petrópolis",
+    "ibge": "3303906",
+    "regiao": "Serrana",
+    "votos": 118,
+    "validos": 151130,
+    "pctValidos": 0.000781
+  },
+  {
+    "cdTse": "58378",
+    "nome": "ITABORAÍ",
+    "nomeOficial": "Itaboraí",
+    "ibge": "3301900",
+    "regiao": "Metropolitana",
+    "votos": 111,
+    "validos": 123804,
+    "pctValidos": 0.000897
+  },
+  {
+    "cdTse": "58475",
+    "nome": "MACAÉ",
+    "nomeOficial": "Macaé",
+    "ibge": "3302403",
+    "regiao": "Norte Fluminense",
+    "votos": 110,
+    "validos": 112651,
+    "pctValidos": 0.000976
+  },
+  {
+    "cdTse": "58467",
+    "nome": "MESQUITA",
+    "nomeOficial": "Mesquita",
+    "ibge": "3302858",
+    "regiao": "Baixada Fluminense",
+    "votos": 100,
+    "validos": 94599,
+    "pctValidos": 0.001057
+  },
+  {
+    "cdTse": "58670",
+    "nome": "NOVA FRIBURGO",
+    "nomeOficial": "Nova Friburgo",
+    "ibge": "3303401",
+    "regiao": "Serrana",
+    "votos": 97,
+    "validos": 99841,
+    "pctValidos": 0.000972
+  },
+  {
+    "cdTse": "58530",
+    "nome": "MARICÁ",
+    "nomeOficial": "Maricá",
+    "ibge": "3302700",
+    "regiao": "Metropolitana",
+    "votos": 86,
+    "validos": 104433,
+    "pctValidos": 0.000823
+  },
+  {
+    "cdTse": "58122",
+    "nome": "QUEIMADOS",
+    "nomeOficial": "Queimados",
+    "ibge": "3304144",
+    "regiao": "Baixada Fluminense",
+    "votos": 80,
+    "validos": 70301,
+    "pctValidos": 0.001138
+  },
+  {
+    "cdTse": "58017",
+    "nome": "ANGRA DOS REIS",
+    "nomeOficial": "Angra dos Reis",
+    "ibge": "3300100",
+    "regiao": "Costa Verde",
+    "votos": 80,
+    "validos": 87741,
+    "pctValidos": 0.000912
+  },
+  {
+    "cdTse": "59099",
+    "nome": "SAQUAREMA",
+    "nomeOficial": "Saquarema",
+    "ibge": "3305505",
+    "regiao": "Região dos Lagos",
+    "votos": 77,
+    "validos": 51082,
+    "pctValidos": 0.001507
+  },
+  {
+    "cdTse": "59030",
+    "nome": "SÃO PEDRO DA ALDEIA",
+    "nomeOficial": "São Pedro da Aldeia",
+    "ibge": "3305208",
+    "regiao": "Região dos Lagos",
+    "votos": 74,
+    "validos": 47228,
+    "pctValidos": 0.001567
+  },
+  {
+    "cdTse": "58033",
+    "nome": "ARARUAMA",
+    "nomeOficial": "Araruama",
+    "ibge": "3300209",
+    "regiao": "Região dos Lagos",
+    "votos": 72,
+    "validos": 69261,
+    "pctValidos": 0.00104
+  },
+  {
+    "cdTse": "58076",
+    "nome": "BARRA MANSA",
+    "nomeOficial": "Barra Mansa",
+    "ibge": "3300407",
+    "regiao": "Médio Paraíba",
+    "votos": 71,
+    "validos": 87173,
+    "pctValidos": 0.000814
+  },
+  {
+    "cdTse": "58394",
+    "nome": "ITAGUAÍ",
+    "nomeOficial": "Itaguaí",
+    "ibge": "3302007",
+    "regiao": "Costa Verde",
+    "votos": 62,
+    "validos": 62904,
+    "pctValidos": 0.000986
+  },
+  {
+    "cdTse": "59218",
+    "nome": "VALENÇA",
+    "nomeOficial": "Valença",
+    "ibge": "3306107",
+    "regiao": "Médio Paraíba",
+    "votos": 48,
+    "validos": 35264,
+    "pctValidos": 0.001361
+  },
+  {
+    "cdTse": "58424",
+    "nome": "SEROPÉDICA",
+    "nomeOficial": "Seropédica",
+    "ibge": "3305554",
+    "regiao": "Baixada Fluminense",
+    "votos": 46,
+    "validos": 39234,
+    "pctValidos": 0.001172
+  },
+  {
+    "cdTse": "58718",
+    "nome": "PARACAMBI",
+    "nomeOficial": "Paracambi",
+    "ibge": "3303609",
+    "regiao": "Baixada Fluminense",
+    "votos": 45,
+    "validos": 23895,
+    "pctValidos": 0.001883
+  },
+  {
+    "cdTse": "58157",
+    "nome": "CACHOEIRAS DE MACACU",
+    "nomeOficial": "Cachoeiras de Macacu",
+    "ibge": "3300803",
+    "regiao": "Metropolitana",
+    "votos": 43,
+    "validos": 31229,
+    "pctValidos": 0.001377
+  },
+  {
+    "cdTse": "58050",
+    "nome": "BARRA DO PIRAÍ",
+    "nomeOficial": "Barra do Piraí",
+    "ibge": "3300308",
+    "regiao": "Médio Paraíba",
+    "votos": 41,
+    "validos": 43229,
+    "pctValidos": 0.000948
+  },
+  {
+    "cdTse": "59196",
+    "nome": "TRÊS RIOS",
+    "nomeOficial": "Três Rios",
+    "ibge": "3306008",
+    "regiao": "Centro-Sul",
+    "votos": 40,
+    "validos": 39812,
+    "pctValidos": 0.001005
+  },
+  {
+    "cdTse": "58750",
+    "nome": "PARATY",
+    "nomeOficial": "Paraty",
+    "ibge": "3303807",
+    "regiao": "Costa Verde",
+    "votos": 37,
+    "validos": 21830,
+    "pctValidos": 0.001695
+  },
+  {
+    "cdTse": "58831",
+    "nome": "RESENDE",
+    "nomeOficial": "Resende",
+    "ibge": "3304201",
+    "regiao": "Médio Paraíba",
+    "votos": 37,
+    "validos": 66649,
+    "pctValidos": 0.000555
+  },
+  {
+    "cdTse": "59234",
+    "nome": "VASSOURAS",
+    "nomeOficial": "Vassouras",
+    "ibge": "3306206",
+    "regiao": "Centro-Sul",
+    "votos": 37,
+    "validos": 16813,
+    "pctValidos": 0.002201
+  },
+  {
+    "cdTse": "58858",
+    "nome": "RIO BONITO",
+    "nomeOficial": "Rio Bonito",
+    "ibge": "3304300",
+    "regiao": "Metropolitana",
+    "votos": 35,
+    "validos": 32251,
+    "pctValidos": 0.001085
+  },
+  {
+    "cdTse": "58149",
+    "nome": "JAPERI",
+    "nomeOficial": "Japeri",
+    "ibge": "3302270",
+    "regiao": "Baixada Fluminense",
+    "votos": 32,
+    "validos": 50777,
+    "pctValidos": 0.00063
+  },
+  {
+    "cdTse": "58092",
+    "nome": "BOM JARDIM",
+    "nomeOficial": "Bom Jardim",
+    "ibge": "3300506",
+    "regiao": "Serrana",
+    "votos": 31,
+    "validos": 14559,
+    "pctValidos": 0.002129
+  },
+  {
+    "cdTse": "58432",
+    "nome": "ITAPERUNA",
+    "nomeOficial": "Itaperuna",
+    "ibge": "3302205",
+    "regiao": "Noroeste Fluminense",
+    "votos": 30,
+    "validos": 52514,
+    "pctValidos": 0.000571
+  },
+  {
+    "cdTse": "58270",
+    "nome": "CONCEIÇÃO DE MACABU",
+    "nomeOficial": "Conceição de Macabu",
+    "ibge": "3301405",
+    "regiao": "Norte Fluminense",
+    "votos": 30,
+    "validos": 11663,
+    "pctValidos": 0.002572
+  },
+  {
+    "cdTse": "58254",
+    "nome": "CASIMIRO DE ABREU",
+    "nomeOficial": "Casimiro de Abreu",
+    "ibge": "3301306",
+    "regiao": "Região dos Lagos",
+    "votos": 30,
+    "validos": 22622,
+    "pctValidos": 0.001326
+  },
+  {
+    "cdTse": "58572",
+    "nome": "MIGUEL PEREIRA",
+    "nomeOficial": "Miguel Pereira",
+    "ibge": "3302908",
+    "regiao": "Centro-Sul",
+    "votos": 28,
+    "validos": 14366,
+    "pctValidos": 0.001949
+  },
+  {
+    "cdTse": "58556",
+    "nome": "MENDES",
+    "nomeOficial": "Mendes",
+    "ibge": "3302809",
+    "regiao": "Centro-Sul",
+    "votos": 26,
+    "validos": 10386,
+    "pctValidos": 0.002503
+  },
+  {
+    "cdTse": "58106",
+    "nome": "GUAPIMIRIM",
+    "nomeOficial": "Guapimirim",
+    "ibge": "3301850",
+    "regiao": "Metropolitana",
+    "votos": 26,
+    "validos": 30056,
+    "pctValidos": 0.000865
+  },
+  {
+    "cdTse": "59277",
+    "nome": "ARRAIAL DO CABO",
+    "nomeOficial": "Arraial do Cabo",
+    "ibge": "3300258",
+    "regiao": "Região dos Lagos",
+    "votos": 23,
+    "validos": 21527,
+    "pctValidos": 0.001068
+  },
+  {
+    "cdTse": "58734",
+    "nome": "PARAÍBA DO SUL",
+    "nomeOficial": "Paraíba do Sul",
+    "ibge": "3303708",
+    "regiao": "Centro-Sul",
+    "votos": 23,
+    "validos": 19568,
+    "pctValidos": 0.001175
+  },
+  {
+    "cdTse": "58408",
+    "nome": "ARMAÇÃO DOS BÚZIOS",
+    "nomeOficial": "Armação dos Búzios",
+    "ibge": "3300233",
+    "regiao": "Região dos Lagos",
+    "votos": 23,
+    "validos": 20765,
+    "pctValidos": 0.001108
+  },
+  {
+    "cdTse": "58262",
+    "nome": "IGUABA GRANDE",
+    "nomeOficial": "Iguaba Grande",
+    "ibge": "3301876",
+    "regiao": "Região dos Lagos",
+    "votos": 21,
+    "validos": 19037,
+    "pctValidos": 0.001103
+  },
+  {
+    "cdTse": "58939",
+    "nome": "SANTO ANTÔNIO DE PÁDUA",
+    "nomeOficial": "Santo Antônio de Pádua",
+    "ibge": "3304706",
+    "regiao": "Noroeste Fluminense",
+    "votos": 18,
+    "validos": 21992,
+    "pctValidos": 0.000818
+  },
+  {
+    "cdTse": "59072",
+    "nome": "SAPUCAIA",
+    "nomeOficial": "Sapucaia",
+    "ibge": "3305406",
+    "regiao": "Centro-Sul",
+    "votos": 18,
+    "validos": 10610,
+    "pctValidos": 0.001697
+  },
+  {
+    "cdTse": "58351",
+    "nome": "ENGENHEIRO PAULO DE FRONTIN",
+    "nomeOficial": "Engenheiro Paulo de Frontin",
+    "ibge": "3301801",
+    "regiao": "Centro-Sul",
+    "votos": 18,
+    "validos": 6905,
+    "pctValidos": 0.002607
+  },
+  {
+    "cdTse": "58114",
+    "nome": "BOM JESUS DO ITABAPOANA",
+    "nomeOficial": "Bom Jesus do Itabapoana",
+    "ibge": "3300605",
+    "regiao": "Noroeste Fluminense",
+    "votos": 17,
+    "validos": 20316,
+    "pctValidos": 0.000837
+  },
+  {
+    "cdTse": "58297",
+    "nome": "CORDEIRO",
+    "nomeOficial": "Cordeiro",
+    "ibge": "3301504",
+    "regiao": "Serrana",
+    "votos": 17,
+    "validos": 12227,
+    "pctValidos": 0.00139
+  },
+  {
+    "cdTse": "58513",
+    "nome": "MANGARATIBA",
+    "nomeOficial": "Mangaratiba",
+    "ibge": "3302601",
+    "regiao": "Costa Verde",
+    "votos": 16,
+    "validos": 25911,
+    "pctValidos": 0.000617
+  },
+  {
+    "cdTse": "59110",
+    "nome": "SILVA JARDIM",
+    "nomeOficial": "Silva Jardim",
+    "ibge": "3305604",
+    "regiao": "Região dos Lagos",
+    "votos": 15,
+    "validos": 13200,
+    "pctValidos": 0.001136
+  },
+  {
+    "cdTse": "58360",
+    "nome": "TANGUÁ",
+    "nomeOficial": "Tanguá",
+    "ibge": "3305752",
+    "regiao": "Metropolitana",
+    "votos": 14,
+    "validos": 18054,
+    "pctValidos": 0.000775
+  },
+  {
+    "cdTse": "58599",
+    "nome": "MIRACEMA",
+    "nomeOficial": "Miracema",
+    "ibge": "3303005",
+    "regiao": "Noroeste Fluminense",
+    "votos": 14,
+    "validos": 14646,
+    "pctValidos": 0.000956
+  },
+  {
+    "cdTse": "58793",
+    "nome": "PIRAÍ",
+    "nomeOficial": "Piraí",
+    "ibge": "3304003",
+    "regiao": "Médio Paraíba",
+    "votos": 12,
+    "validos": 16161,
+    "pctValidos": 0.000743
+  },
+  {
+    "cdTse": "58610",
+    "nome": "NATIVIDADE",
+    "nomeOficial": "Natividade",
+    "ibge": "3303104",
+    "regiao": "Noroeste Fluminense",
+    "votos": 11,
+    "validos": 8337,
+    "pctValidos": 0.001319
+  },
+  {
+    "cdTse": "59170",
+    "nome": "TRAJANO DE MORAES",
+    "nomeOficial": "Trajano de Moraes",
+    "ibge": "3305901",
+    "regiao": "Serrana",
+    "votos": 11,
+    "validos": 6501,
+    "pctValidos": 0.001692
+  },
+  {
+    "cdTse": "59293",
+    "nome": "ITALVA",
+    "nomeOficial": "Italva",
+    "ibge": "3302056",
+    "regiao": "Noroeste Fluminense",
+    "votos": 10,
+    "validos": 8079,
+    "pctValidos": 0.001238
+  },
+  {
+    "cdTse": "58009",
+    "nome": "QUISSAMÃ",
+    "nomeOficial": "Quissamã",
+    "ibge": "3304151",
+    "regiao": "Norte Fluminense",
+    "votos": 9,
+    "validos": 13143,
+    "pctValidos": 0.000685
+  },
+  {
+    "cdTse": "59315",
+    "nome": "PATY DO ALFERES",
+    "nomeOficial": "Paty do Alferes",
+    "ibge": "3303856",
+    "regiao": "Centro-Sul",
+    "votos": 9,
+    "validos": 11567,
+    "pctValidos": 0.000778
+  },
+  {
+    "cdTse": "58955",
+    "nome": "SÃO FIDÉLIS",
+    "nomeOficial": "São Fidélis",
+    "ibge": "3304805",
+    "regiao": "Norte Fluminense",
+    "votos": 8,
+    "validos": 20909,
+    "pctValidos": 0.000383
+  },
+  {
+    "cdTse": "58300",
+    "nome": "CARAPEBUS",
+    "nomeOficial": "Carapebus",
+    "ibge": "3300936",
+    "regiao": "Norte Fluminense",
+    "votos": 8,
+    "validos": 9094,
+    "pctValidos": 0.00088
+  },
+  {
+    "cdTse": "58173",
+    "nome": "CAMBUCI",
+    "nomeOficial": "Cambuci",
+    "ibge": "3300902",
+    "regiao": "Noroeste Fluminense",
+    "votos": 8,
+    "validos": 8979,
+    "pctValidos": 0.000891
+  },
+  {
+    "cdTse": "59331",
+    "nome": "SÃO JOSÉ DO VALE DO RIO PRETO",
+    "nomeOficial": "São José do Vale do Rio Preto",
+    "ibge": "3305158",
+    "regiao": "Serrana",
+    "votos": 7,
+    "validos": 10717,
+    "pctValidos": 0.000653
+  },
+  {
+    "cdTse": "58440",
+    "nome": "ITATIAIA",
+    "nomeOficial": "Itatiaia",
+    "ibge": "3302254",
+    "regiao": "Médio Paraíba",
+    "votos": 7,
+    "validos": 17880,
+    "pctValidos": 0.000391
+  },
+  {
+    "cdTse": "59137",
+    "nome": "SUMIDOURO",
+    "nomeOficial": "Sumidouro",
+    "ibge": "3305703",
+    "regiao": "Serrana",
+    "votos": 7,
+    "validos": 9673,
+    "pctValidos": 0.000724
+  },
+  {
+    "cdTse": "58246",
+    "nome": "PINHEIRAL",
+    "nomeOficial": "Pinheiral",
+    "ibge": "3303955",
+    "regiao": "Médio Paraíba",
+    "votos": 7,
+    "validos": 12433,
+    "pctValidos": 0.000563
+  },
+  {
+    "cdTse": "58815",
+    "nome": "PORCIÚNCULA",
+    "nomeOficial": "Porciúncula",
+    "ibge": "3304102",
+    "regiao": "Noroeste Fluminense",
+    "votos": 6,
+    "validos": 9368,
+    "pctValidos": 0.00064
+  },
+  {
+    "cdTse": "58874",
+    "nome": "RIO CLARO",
+    "nomeOficial": "Rio Claro",
+    "ibge": "3304409",
+    "regiao": "Médio Paraíba",
+    "votos": 6,
+    "validos": 10120,
+    "pctValidos": 0.000593
+  },
+  {
+    "cdTse": "58998",
+    "nome": "SÃO JOÃO DA BARRA",
+    "nomeOficial": "São João da Barra",
+    "ibge": "3305000",
+    "regiao": "Norte Fluminense",
+    "votos": 4,
+    "validos": 25473,
+    "pctValidos": 0.000157
+  },
+  {
+    "cdTse": "58912",
+    "nome": "SANTA MARIA MADALENA",
+    "nomeOficial": "Santa Maria Madalena",
+    "ibge": "3304607",
+    "regiao": "Serrana",
+    "votos": 4,
+    "validos": 5985,
+    "pctValidos": 0.000668
+  },
+  {
+    "cdTse": "58211",
+    "nome": "CANTAGALO",
+    "nomeOficial": "Cantagalo",
+    "ibge": "3301108",
+    "regiao": "Serrana",
+    "votos": 4,
+    "validos": 10487,
+    "pctValidos": 0.000381
+  },
+  {
+    "cdTse": "58068",
+    "nome": "CARDOSO MOREIRA",
+    "nomeOficial": "Cardoso Moreira",
+    "ibge": "3301157",
+    "regiao": "Norte Fluminense",
+    "votos": 3,
+    "validos": 6575,
+    "pctValidos": 0.000456
+  },
+  {
+    "cdTse": "58459",
+    "nome": "LAJE DO MURIAÉ",
+    "nomeOficial": "Laje do Muriaé",
+    "ibge": "3302304",
+    "regiao": "Noroeste Fluminense",
+    "votos": 3,
+    "validos": 4995,
+    "pctValidos": 0.000601
+  },
+  {
+    "cdTse": "58220",
+    "nome": "AREAL",
+    "nomeOficial": "Areal",
+    "ibge": "3300225",
+    "regiao": "Centro-Sul",
+    "votos": 3,
+    "validos": 6244,
+    "pctValidos": 0.00048
+  },
+  {
+    "cdTse": "58416",
+    "nome": "ITAOCARA",
+    "nomeOficial": "Itaocara",
+    "ibge": "3302106",
+    "regiao": "Noroeste Fluminense",
+    "votos": 3,
+    "validos": 13402,
+    "pctValidos": 0.000224
+  },
+  {
+    "cdTse": "58327",
+    "nome": "PORTO REAL",
+    "nomeOficial": "Porto Real",
+    "ibge": "3304110",
+    "regiao": "Médio Paraíba",
+    "votos": 3,
+    "validos": 12359,
+    "pctValidos": 0.000243
+  },
+  {
+    "cdTse": "58238",
+    "nome": "CARMO",
+    "nomeOficial": "Carmo",
+    "ibge": "3301207",
+    "regiao": "Serrana",
+    "votos": 3,
+    "validos": 9939,
+    "pctValidos": 0.000302
+  },
+  {
+    "cdTse": "58025",
+    "nome": "QUATIS",
+    "nomeOficial": "Quatis",
+    "ibge": "3304128",
+    "regiao": "Médio Paraíba",
+    "votos": 2,
+    "validos": 7516,
+    "pctValidos": 0.000266
+  },
+  {
+    "cdTse": "58084",
+    "nome": "VARRE-SAI",
+    "nomeOficial": "Varre-Sai",
+    "ibge": "3306156",
+    "regiao": "Noroeste Fluminense",
+    "votos": 2,
+    "validos": 5612,
+    "pctValidos": 0.000356
+  },
+  {
+    "cdTse": "58386",
+    "nome": "MACUCO",
+    "nomeOficial": "Macuco",
+    "ibge": "3302452",
+    "regiao": "Serrana",
+    "votos": 1,
+    "validos": 5098,
+    "pctValidos": 0.000196
+  },
+  {
+    "cdTse": "59056",
+    "nome": "SÃO SEBASTIÃO DO ALTO",
+    "nomeOficial": "São Sebastião do Alto",
+    "ibge": "3305307",
+    "regiao": "Serrana",
+    "votos": 1,
+    "validos": 5846,
+    "pctValidos": 0.000171
+  },
+  {
+    "cdTse": "58289",
+    "nome": "SÃO FRANCISCO DE ITABAPOANA",
+    "nomeOficial": "São Francisco de Itabapoana",
+    "ibge": "3304755",
+    "regiao": "Norte Fluminense",
+    "votos": 1,
+    "validos": 21763,
+    "pctValidos": 0.000046
+  },
+  {
+    "cdTse": "58165",
+    "nome": "COMENDADOR LEVY GASPARIAN",
+    "nomeOficial": "Comendador Levy Gasparian",
+    "ibge": "3300951",
+    "regiao": "Centro-Sul",
+    "votos": 1,
+    "validos": 5471,
+    "pctValidos": 0.000183
+  },
+  {
+    "cdTse": "58343",
+    "nome": "SÃO JOSÉ DE UBÁ",
+    "nomeOficial": "São José de Ubá",
+    "ibge": "3305133",
+    "regiao": "Noroeste Fluminense",
+    "votos": 0,
+    "validos": 5519,
+    "pctValidos": 0
+  },
+  {
+    "cdTse": "58319",
+    "nome": "DUAS BARRAS",
+    "nomeOficial": "Duas Barras",
+    "ibge": "3301603",
+    "regiao": "Serrana",
+    "votos": 0,
+    "validos": 7119,
+    "pctValidos": 0
+  },
+  {
+    "cdTse": "58181",
+    "nome": "APERIBÉ",
+    "nomeOficial": "Aperibé",
+    "ibge": "3300159",
+    "regiao": "Noroeste Fluminense",
+    "votos": 0,
+    "validos": 7093,
+    "pctValidos": 0
+  },
+  {
+    "cdTse": "58890",
+    "nome": "RIO DAS FLORES",
+    "nomeOficial": "Rio das Flores",
+    "ibge": "3304508",
+    "regiao": "Médio Paraíba",
+    "votos": 0,
+    "validos": 5462,
+    "pctValidos": 0
+  }
+]

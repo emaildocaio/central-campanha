@@ -1,0 +1,26 @@
+{
+  "2022": {
+    "cargo": "Deputado Estadual",
+    "totalEstado": 19434,
+    "totalCapital": 13704,
+    "municipiosComVoto": 88,
+    "municipiosTotal": 92,
+    "zonasCapital": 49,
+    "bairrosComVoto": 147,
+    "validosCapital": 3191424,
+    "comparecimentoCapital": 3782452,
+    "pctValidosCapital": 0.004294
+  },
+  "2024": {
+    "cargo": "Vereador",
+    "totalEstado": 6783,
+    "totalCapital": 6783,
+    "municipiosComVoto": 1,
+    "municipiosTotal": 1,
+    "zonasCapital": 49,
+    "bairrosComVoto": 143,
+    "validosCapital": 3016873,
+    "comparecimentoCapital": 3477280,
+    "pctValidosCapital": 0.002248
+  }
+}

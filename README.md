@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Central de Campanha — Renato Pellizzari
 
-## Getting Started
+Dashboard de comando para a campanha a **Deputado Estadual (RJ)** — eleição de 04/10/2026.
+Reúne CRM de apoiadores, mapa eleitoral, agenda de eventos e o financeiro da campanha em
+um só lugar.
 
-First, run the development server:
+Construído com **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4** e **Recharts**.
+Hoje roda com **dados de exemplo** (camada de dados tipada) e já vem com o **schema do
+Supabase** pronto para plugar o banco real.
+
+## Como rodar
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Outros scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # build de produção (typecheck + compilação de todas as rotas)
+npm run start   # serve o build de produção
+npm run lint    # ESLint
+```
 
-## Learn More
+## Módulos
 
-To learn more about Next.js, take a look at the following resources:
+| Rota           | Módulo               | O que mostra                                                        |
+| -------------- | -------------------- | ------------------------------------------------------------------- |
+| `/`            | Visão Geral          | KPIs gerais, votos por região, meta projetada, fluxo de caixa       |
+| `/apoiadores`  | CRM de apoiadores    | Lista filtrável de lideranças, cabos eleitorais, voluntários, doadores |
+| `/mapa`        | Mapa Eleitoral RJ    | Votos projetados x meta por município e por região                  |
+| `/agenda`      | Agenda & eventos     | Comícios, reuniões, caminhadas e carreatas agrupados por data       |
+| `/financeiro`  | Financeiro           | Receitas, despesas e acompanhamento do limite de gastos do TSE      |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/
+    layout.tsx           # shell (sidebar + topbar) e metadados
+    page.tsx             # Visão Geral
+    apoiadores/page.tsx  # CRM
+    mapa/page.tsx        # Mapa eleitoral
+    agenda/page.tsx      # Agenda
+    financeiro/page.tsx  # Financeiro
+    globals.css          # tema claro (Tailwind v4)
+  components/
+    sidebar.tsx          # navegação lateral
+    topbar.tsx           # contagem regressiva + nav mobile
+    charts.tsx           # gráficos Recharts (client components)
+    ui.tsx               # Card, KpiCard, Badge, PageHeader, etc.
+    nav-items.ts         # rotas do menu
+  lib/
+    campaign-data.ts     # DADOS DE EXEMPLO + seletores (trocar por Supabase)
+    types.ts             # tipos do domínio
+    format.ts            # formatadores pt-BR (R$, datas, %)
+    cn.ts                # utilitário de classes
+supabase/
+  schema.sql             # schema PostgreSQL (tabelas, enums, índices, RLS)
+  seed.sql               # recorte de dados para popular o banco
+.env.local.example       # variáveis do Supabase
+```
 
-## Deploy on Vercel
+## Conectar o Supabase (quando quiser sair dos dados de exemplo)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Crie um projeto em [supabase.com](https://supabase.com) e rode `supabase/schema.sql`
+   no **SQL Editor** (ou `supabase db push`).
+2. Rode `supabase/seed.sql` para popular com dados iniciais — ou carregue os seus.
+3. Copie `.env.local.example` para `.env.local` e preencha:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://SEU-PROJETO.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=sua-anon-key-aqui
+   ```
+
+4. Instale o client: `npm install @supabase/supabase-js`.
+5. Em `src/lib/campaign-data.ts`, troque o corpo dos seletores (`getApoiadores`,
+   `getEventos`, `getReceitas`, etc.) por consultas ao Supabase. As assinaturas e os
+   tipos de retorno já estão definidos em `src/lib/types.ts`, então as páginas não
+   precisam mudar.
+
+> A camada de dados foi desenhada de propósito assim: as páginas só conhecem os
+> seletores, nunca a origem dos dados. Trocar exemplo → Supabase é mexer só em um arquivo.
+
+## Notas
+
+- Os valores financeiros seguem as regras de prestação de contas do TSE; o limite de
+  gastos é configurável conforme o teto oficial da eleição.
+- Datas no formato `YYYY-MM-DD` são tratadas como horário local para evitar erro de
+  fuso (off-by-one).
