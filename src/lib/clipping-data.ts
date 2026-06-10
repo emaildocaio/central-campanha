@@ -54,7 +54,10 @@ export async function getClipping(): Promise<ClippingResultado> {
   const url = process.env.CLIPPING_FEED_URL;
   if (url) {
     try {
-      const res = await fetch(url, { next: { revalidate: 1800 } });
+      // `force-cache` torna o fetch estático (resolvido no build) — compatível com
+      // `output: export` do GitHub Pages. O clipping é um snapshot do momento do
+      // deploy; para atualizá-lo, basta republicar (push na main / re-run do deploy).
+      const res = await fetch(url, { cache: "force-cache" });
       if (res.ok) {
         const data = await res.json();
         const noticias: Noticia[] = Array.isArray(data) ? data : (data.noticias ?? []);

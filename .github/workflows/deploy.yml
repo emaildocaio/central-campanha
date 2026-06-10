@@ -1,0 +1,50 @@
+name: Deploy — GitHub Pages
+
+# Produção: todo push na main rebuilda o export estático e publica no Pages.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# Permissões exigidas pelo deploy oficial de Pages via Actions.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; não cancela um deploy em andamento.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build (export estático)
+        run: npm run build
+        env:
+          GITHUB_PAGES: "true"
+          # Opcional: se o secret existir, o clipping é populado com notícias reais
+          # no build; senão cai no fallback de exemplos (sem quebrar o build).
+          CLIPPING_FEED_URL: ${{ secrets.CLIPPING_FEED_URL }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
