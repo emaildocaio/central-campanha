@@ -17,17 +17,22 @@ export function Sidebar() {
         <div className="text-xs text-slate-400">Deputado Estadual · RJ</div>
       </div>
       <nav className="flex-1 space-y-1 px-3 py-4">
-        {navItems.map(({ href, label, icon: Icon, children }) => {
+        {navItems.map(({ href, label, icon: Icon, children, emConstrucao }) => {
           const active = isActive(href, path);
           return (
             <div key={href}>
               <Link
                 href={href}
+                title={emConstrucao ? "Em construção" : undefined}
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition",
-                  active
-                    ? "bg-blue-600 text-white shadow-sm"
-                    : "text-slate-300 hover:bg-white/5 hover:text-white",
+                  emConstrucao
+                    ? active
+                      ? "bg-white/5 text-slate-400"
+                      : "text-slate-500 hover:bg-white/5 hover:text-slate-400"
+                    : active
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white",
                 )}
               >
                 <Icon className="size-[18px]" />

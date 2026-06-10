@@ -28,6 +28,7 @@ import {
   formatNumero,
   formatPct,
 } from "@/lib/format";
+import { EmConstrucao } from "@/components/em-construcao";
 
 const REGIAO_CURTA: Record<string, string> = {
   Metropolitana: "Metrop.",
@@ -59,7 +60,8 @@ export default function DashboardPage() {
   const limiteTone = kpis.pctLimiteTSE > 0.7 ? "amber" : "blue";
 
   return (
-    <div>
+    <EmConstrucao>
+      <div>
       <PageHeader
         title="Visão Geral"
         description="Panorama da campanha — votos, equipe, agenda e finanças em um só lugar."
@@ -210,6 +212,7 @@ export default function DashboardPage() {
           </ul>
         </Card>
       </div>
-    </div>
+      </div>
+    </EmConstrucao>
   );
 }

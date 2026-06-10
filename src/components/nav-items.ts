@@ -19,10 +19,12 @@ export interface NavItem {
   label: string;
   icon: LucideIcon;
   children?: NavItem[];
+  /** Seção ainda em desenvolvimento — exibida em cinza (muted) na navegação. */
+  emConstrucao?: boolean;
 }
 
 export const navItems: NavItem[] = [
-  { href: "/", label: "Visão Geral", icon: LayoutDashboard },
+  { href: "/", label: "Visão Geral", icon: LayoutDashboard, emConstrucao: true },
   {
     href: "/kpis",
     label: "KPIs",
@@ -32,14 +34,14 @@ export const navItems: NavItem[] = [
       { href: "/kpis/eleitores-por-ra", label: "Eleitores a conquistar", icon: Target },
     ],
   },
-  { href: "/apoiadores", label: "Apoiadores", icon: Users },
-  { href: "/mapa", label: "Mapa Eleitoral", icon: Map },
+  { href: "/apoiadores", label: "Apoiadores", icon: Users, emConstrucao: true },
+  { href: "/mapa", label: "Mapa Eleitoral", icon: Map, emConstrucao: true },
   { href: "/mapa-2022", label: "Eleição 2022", icon: Landmark },
   { href: "/mapa-2024", label: "Eleição 2024", icon: Vote },
   { href: "/de-para", label: "De Para", icon: ListTree },
   { href: "/clipping", label: "Clipping de Notícias", icon: Newspaper },
-  { href: "/agenda", label: "Agenda", icon: CalendarDays },
-  { href: "/financeiro", label: "Financeiro", icon: Wallet },
+  { href: "/agenda", label: "Agenda", icon: CalendarDays, emConstrucao: true },
+  { href: "/financeiro", label: "Financeiro", icon: Wallet, emConstrucao: true },
 ];
 
 export function isActive(href: string, path: string): boolean {

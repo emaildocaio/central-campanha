@@ -2,11 +2,13 @@ import Link from "next/link";
 import { Vote, MapPin, Layers, Trophy, Building2, Landmark, ArrowRight } from "lucide-react";
 import { Card, KpiCard, PageHeader, ProgressBar, Badge } from "@/components/ui";
 import { ElectoralMap } from "@/components/electoral-map";
+import { BuscaLocais, type ItemBusca } from "@/components/busca-locais";
 import {
   getBairros,
   getLocais2022,
   getMaxVotosBairro,
   getMeta,
+  getMunicipios2022,
   getZonas,
   type AnoEleicao,
 } from "@/lib/votos-data";
@@ -27,6 +29,26 @@ export function MapaEleicao({ ano }: { ano: AnoEleicao }) {
   const votosInterior = meta.totalEstado - meta.totalVotos;
   const locais = ehEstadual ? getLocais2022(12) : [];
   const maxLocal = locais[0]?.votos ?? 0;
+
+  // Itens pesquisáveis: bairros da capital sempre; municípios do estado em 2022.
+  const itensBusca: ItemBusca[] = [
+    ...ranking.map((b) => ({
+      nome: b.nome,
+      tipo: "bairro" as const,
+      contexto: b.ra && b.ra !== "—" ? b.ra : "Cidade do Rio",
+      votos: b.votos,
+    })),
+    ...(ehEstadual
+      ? getMunicipios2022()
+          .filter((m) => m.votos > 0)
+          .map((m) => ({
+            nome: m.nomeOficial,
+            tipo: "municipio" as const,
+            contexto: m.regiao ?? "RJ",
+            votos: m.votos,
+          }))
+      : []),
+  ];
 
   const descricao = ehEstadual ? (
     <>
@@ -108,6 +130,24 @@ export function MapaEleicao({ ano }: { ano: AnoEleicao }) {
           </span>
         </div>
       )}
+
+      <Card
+        className="mt-4"
+        title={ehEstadual ? "Buscar bairro ou município" : "Buscar bairro"}
+        description={
+          ehEstadual
+            ? "Digite o nome de um bairro da capital ou de um município do estado para ver os votos do candidato em 2022."
+            : "Digite o nome de um bairro da cidade do Rio para ver os votos do candidato em 2024."
+        }
+      >
+        <BuscaLocais
+          itens={itensBusca}
+          comMunicipios={ehEstadual}
+          placeholder={
+            ehEstadual ? "Buscar bairro ou município…" : "Buscar bairro…"
+          }
+        />
+      </Card>
 
       <Card
         className="mt-4"
