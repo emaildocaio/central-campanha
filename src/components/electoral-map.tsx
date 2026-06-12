@@ -6,8 +6,8 @@ import { RIO_VIEWBOX } from "@/lib/rio-bairros-geo";
 import type { BairroVotos } from "@/lib/votos-data";
 import { formatNumero, formatPct } from "@/lib/format";
 
-const SEM_DADOS = "#eef2f7";
-const ESCALA = ["#dbeafe", "#93c5fd", "#60a5fa", "#3b82f6", "#1d4ed8"];
+const SEM_DADOS = "#efe7d4";
+const ESCALA = ["#f3e9ce", "#e3c488", "#d99a2b", "#b0503f", "#8c3c2e"];
 
 function corPara(votos: number, max: number): string {
   if (votos <= 0 || max <= 0) return SEM_DADOS;
