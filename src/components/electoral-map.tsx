@@ -206,7 +206,8 @@ function DetailPanel({
                 Zona <span className="font-medium text-slate-800">{z.zona}</span>
               </span>
               <span className="tabular-nums text-slate-500">
-                {formatNumero(z.votos)} votos · {formatPct(z.pct, 2)} da zona
+                {formatNumero(z.votos)} votos
+                {z.pct > 0 ? ` · ${formatPct(z.pct, 2)} da zona` : ""}
               </span>
             </li>
           ))}
