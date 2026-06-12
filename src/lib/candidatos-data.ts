@@ -40,9 +40,36 @@ const ordem = (slug: string) => {
   return i < 0 ? 999 : i;
 };
 
+// Situação (eleito/suplente/não eleito) por candidato×ano. Fontes oficiais:
+//  • 2022/2024 — TSE (candidato_munzona, campo DS_SIT_TOT_TURNO).
+//  • 2018 estaduais — ALERJ, Lista de deputados da 12ª legislatura (eleitos 2018).
+//  • 2018 federais — Câmara dos Deputados / 56ª legislatura (Freixo eleito; Reimont
+//    e Tatiana não assumiram = suplentes).
+//  • 2020 — vereadores eleitos na cidade do Rio (Reimont, PT, reeleito).
+const SITUACAO: Record<string, "Eleito" | "Suplente" | "Não eleito"> = {
+  "marcelo-freixo-2018": "Eleito",
+  "reimont-2018": "Suplente",
+  "renan-ferreirinha-2018": "Eleito",
+  "martha-rocha-2018": "Eleito",
+  "tatiana-roque-2018": "Suplente",
+  "reimont-2020": "Eleito",
+  "renato-pellizzari-2022": "Suplente",
+  "marcelo-freixo-2022": "Não eleito",
+  "reimont-2022": "Eleito",
+  "renan-ferreirinha-2022": "Suplente",
+  "martha-rocha-2022": "Eleito",
+  "tatiana-roque-2022": "Suplente",
+  "heloisa-helena-2022": "Suplente",
+  "renato-pellizzari-2024": "Suplente",
+  "tatiana-roque-2024": "Eleito",
+  "heloisa-helena-2024": "Suplente",
+};
+
 /** Candidatos rastreados que concorreram no ano (ordenados p/ o seletor). */
 export function getCandidatosAno(ano: number): CandidatoAnoDados[] {
-  return TODOS.filter((c) => c.ano === ano).sort((a, b) => ordem(a.slug) - ordem(b.slug));
+  return TODOS.filter((c) => c.ano === ano)
+    .sort((a, b) => ordem(a.slug) - ordem(b.slug))
+    .map((c) => ({ ...c, situacao: SITUACAO[`${c.slug}-${c.ano}`] }));
 }
 
 /** Anos com pelo menos um candidato rastreado. */

@@ -61,3 +61,6 @@ next-env.d.ts
 .AppleDouble
 .Spotlight-V100
 .Trashes
+
+# Projeto separado (tem repositório git próprio) — não faz parte do dashboard
+/pellizzari-participar/

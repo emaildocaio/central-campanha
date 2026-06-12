@@ -22,6 +22,7 @@ export interface CandidatoAnoDados {
   nome: string;
   cargo: string;
   partido: string | null;
+  situacao?: "Eleito" | "Suplente" | "Não eleito";
   totalRJ: number;
   totalCapital: number;
   coberturaBairro: number;
@@ -118,10 +119,25 @@ export function MapaEleicaoMulti({
               <option key={c.slug} value={c.slug}>
                 {c.nome} — {c.cargo}
                 {c.partido ? ` (${c.partido})` : ""}
+                {c.situacao ? ` · ${c.situacao}` : ""}
               </option>
             ))}
           </select>
           {cand.partido ? <Badge tone="slate">{cand.partido}</Badge> : null}
+          {cand.situacao ? (
+            <span
+              className={cn(
+                "rounded-full px-2.5 py-0.5 text-xs font-semibold",
+                cand.situacao === "Eleito"
+                  ? "bg-emerald-100 text-emerald-700"
+                  : cand.situacao === "Suplente"
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-slate-100 text-slate-600",
+              )}
+            >
+              {cand.situacao === "Eleito" ? "✓ Eleito" : cand.situacao}
+            </span>
+          ) : null}
           <span className="text-xs text-slate-400">
             {candidatos.length} candidato{candidatos.length > 1 ? "s" : ""} rastreado
             {candidatos.length > 1 ? "s" : ""} em {ano}
