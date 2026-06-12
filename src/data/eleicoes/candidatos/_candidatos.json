@@ -1,0 +1,108 @@
+[
+  {
+    "slug": "renato-pellizzari",
+    "nome": "Renato Pellizzari",
+    "anos": {
+      "2022": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      },
+      "2024": {
+        "cargo": "Vereador",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "marcelo-freixo",
+    "nome": "Marcelo Freixo",
+    "anos": {
+      "2018": {
+        "cargo": "Deputado Federal",
+        "partido": "PSOL"
+      },
+      "2022": {
+        "cargo": "Governador",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "reimont",
+    "nome": "Reimont",
+    "anos": {
+      "2018": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
+      },
+      "2020": {
+        "cargo": "Vereador",
+        "partido": "PT"
+      },
+      "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
+      }
+    }
+  },
+  {
+    "slug": "renan-ferreirinha",
+    "nome": "Renan Ferreirinha",
+    "anos": {
+      "2018": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      },
+      "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PSD"
+      }
+    }
+  },
+  {
+    "slug": "martha-rocha",
+    "nome": "Martha Rocha",
+    "anos": {
+      "2018": {
+        "cargo": "Deputado Estadual",
+        "partido": "PDT"
+      },
+      "2022": {
+        "cargo": "Deputado Estadual",
+        "partido": "PDT"
+      }
+    }
+  },
+  {
+    "slug": "tatiana-roque",
+    "nome": "Tatiana Roque",
+    "anos": {
+      "2018": {
+        "cargo": "Deputado Federal",
+        "partido": "PSOL"
+      },
+      "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PSB"
+      },
+      "2024": {
+        "cargo": "Vereador",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "heloisa-helena",
+    "nome": "Heloísa Helena",
+    "anos": {
+      "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "REDE"
+      },
+      "2024": {
+        "cargo": "Vereador",
+        "partido": "REDE"
+      }
+    }
+  }
+]

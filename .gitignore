@@ -46,6 +46,8 @@ next-env.d.ts
 /data/
 /votacao_candidato_munzona_2024/
 /votacao_partido_munzona_2022/
+/votacao_secao_2018_RJ/
+/votacao_secao_2020_RJ/
 /votacao_secao_2022_RJ/
 /votacao_secao_2024_RJ/
 /Votos por Zona 2022/
@@ -59,3 +61,6 @@ next-env.d.ts
 .AppleDouble
 .Spotlight-V100
 .Trashes
+
+# Projeto separado (tem repositório git próprio) — não faz parte do dashboard
+/pellizzari-participar/
