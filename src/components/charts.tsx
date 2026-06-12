@@ -20,14 +20,14 @@ import {
 import { formatBRL, formatCompactoBRL, formatNumero } from "@/lib/format";
 
 const CORES = [
-  "#2563eb",
-  "#10b981",
-  "#f59e0b",
-  "#ef4444",
-  "#8b5cf6",
-  "#06b6d4",
-  "#ec4899",
-  "#64748b",
+  "#b0503f",
+  "#d99a2b",
+  "#8c3c2e",
+  "#c6892a",
+  "#7a6a5f",
+  "#e3c488",
+  "#9c4435",
+  "#b9a78c",
 ];
 
 const num = (v: unknown) => formatNumero(Number(v));
@@ -47,12 +47,12 @@ export function TopMunicipiosChart({
           margin={{ left: 8, right: 20, top: 4, bottom: 4 }}
           barCategoryGap={10}
         >
-          <CartesianGrid horizontal={false} stroke="#eef2f7" />
+          <CartesianGrid horizontal={false} stroke="#f0e9d6" />
           <XAxis
             type="number"
             tickFormatter={num}
             fontSize={11}
-            stroke="#94a3b8"
+            stroke="#b9a78c"
             tickLine={false}
           />
           <YAxis
@@ -60,17 +60,17 @@ export function TopMunicipiosChart({
             dataKey="nome"
             width={140}
             fontSize={11}
-            stroke="#475569"
+            stroke="#574a40"
             tickLine={false}
             axisLine={false}
           />
-          <Tooltip formatter={num} cursor={{ fill: "#f1f5f9" }} />
+          <Tooltip formatter={num} cursor={{ fill: "#f3ecdb" }} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
-          <Bar dataKey="meta" name="Meta" fill="#cbd5e1" radius={[0, 4, 4, 0]} barSize={8} />
+          <Bar dataKey="meta" name="Meta" fill="#d6c5a3" radius={[0, 4, 4, 0]} barSize={8} />
           <Bar
             dataKey="projetado"
             name="Projetado"
-            fill="#2563eb"
+            fill="#b0503f"
             radius={[0, 4, 4, 0]}
             barSize={8}
           />
@@ -89,21 +89,21 @@ export function VotosRegiaoChart({
     <div className="h-[320px] w-full">
       <ResponsiveContainer>
         <BarChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
-          <CartesianGrid vertical={false} stroke="#eef2f7" />
+          <CartesianGrid vertical={false} stroke="#f0e9d6" />
           <XAxis
             dataKey="regiao"
             fontSize={10}
-            stroke="#94a3b8"
+            stroke="#b9a78c"
             interval={0}
             angle={-20}
             textAnchor="end"
             height={70}
           />
-          <YAxis fontSize={11} stroke="#94a3b8" tickFormatter={num} tickLine={false} />
-          <Tooltip formatter={num} cursor={{ fill: "#f1f5f9" }} />
+          <YAxis fontSize={11} stroke="#b9a78c" tickFormatter={num} tickLine={false} />
+          <Tooltip formatter={num} cursor={{ fill: "#f3ecdb" }} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
-          <Bar dataKey="meta" name="Meta" fill="#cbd5e1" radius={[4, 4, 0, 0]} />
-          <Bar dataKey="projetado" name="Projetado" fill="#2563eb" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="meta" name="Meta" fill="#d6c5a3" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="projetado" name="Projetado" fill="#b0503f" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
@@ -151,16 +151,16 @@ export function FluxoChart({
     <div className="h-[300px] w-full">
       <ResponsiveContainer>
         <ComposedChart data={data} margin={{ top: 8, right: 8, left: 4, bottom: 0 }}>
-          <CartesianGrid vertical={false} stroke="#eef2f7" />
-          <XAxis dataKey="mes" fontSize={11} stroke="#94a3b8" tickLine={false} />
+          <CartesianGrid vertical={false} stroke="#f0e9d6" />
+          <XAxis dataKey="mes" fontSize={11} stroke="#b9a78c" tickLine={false} />
           <YAxis
             fontSize={11}
-            stroke="#94a3b8"
+            stroke="#b9a78c"
             tickFormatter={(v) => formatCompactoBRL(Number(v))}
             tickLine={false}
             width={64}
           />
-          <Tooltip formatter={brl} cursor={{ fill: "#f1f5f9" }} />
+          <Tooltip formatter={brl} cursor={{ fill: "#f3ecdb" }} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
           <Bar
             dataKey="receitas"
@@ -196,10 +196,10 @@ export function MetaGauge({ value }: { value: number }) {
         >
           <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
           <RadialBar
-            background={{ fill: "#eef2f7" }}
+            background={{ fill: "#f0e9d6" }}
             dataKey="value"
             cornerRadius={12}
-            fill="#2563eb"
+            fill="#b0503f"
           />
         </RadialBarChart>
       </ResponsiveContainer>
