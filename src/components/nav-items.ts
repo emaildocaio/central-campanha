@@ -11,6 +11,7 @@ import {
   Newspaper,
   CalendarDays,
   Wallet,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -42,6 +43,7 @@ export const navItems: NavItem[] = [
   { href: "/mapa-2024", label: "Eleição 2024", icon: Vote },
   { href: "/de-para", label: "De Para", icon: ListTree },
   { href: "/clipping", label: "Clipping de Notícias", icon: Newspaper },
+  { href: "/pauta", label: "Pauta da Semana", icon: Sparkles },
   { href: "/agenda", label: "Agenda", icon: CalendarDays, emConstrucao: true },
   { href: "/financeiro", label: "Financeiro", icon: Wallet, emConstrucao: true },
 ];
