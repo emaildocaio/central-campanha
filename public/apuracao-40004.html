@@ -350,7 +350,7 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     CANDS.forEach(c=>{const b=$("tab-"+c.id);b.setAttribute("aria-selected",c===cur?"true":"false");b.tabIndex=c===cur?0:-1;});
     applyTheme(cur);
     sel.value=cur.id;
-    if(user){ try{localStorage.setItem("apuracao-aba",cur.id)}catch(e){} try{history.replaceState(null,"","#"+cur.id)}catch(e){} }
+    if(user){ rastrear("trocou"); try{localStorage.setItem("apuracao-aba",cur.id)}catch(e){} try{history.replaceState(null,"","#"+cur.id)}catch(e){} }
     renderStatic(); if(data) render(data);
   }
   function updateShare(){
@@ -607,6 +607,19 @@ function chaveDe(r) {
     document.addEventListener("visibilitychange",()=>{ if(!document.hidden) vez(true); });
   }
 
+  // contador anônimo de audiência (só página, aba e hora; nenhum dado pessoal)
+  function rastrear(evento){
+    try{
+      if(!/github\.io$/.test(location.hostname)) return;
+      let sid=null; try{ sid=localStorage.getItem("apuracao-sid"); if(!sid){ sid=Math.random().toString(36).slice(2)+Date.now().toString(36); localStorage.setItem("apuracao-sid",sid); } }catch(e){}
+      if(!sid){ window.__sid=window.__sid||Math.random().toString(36).slice(2); sid=window.__sid; }
+      fetch(REST.replace("apuracao_painel","registrar_visita"),{method:"POST",keepalive:true,headers:{apikey:ANON,"Content-Type":"application/json"},
+        body:JSON.stringify({p_pagina:CANDS.length===1?"40004":"comites",p_aba:cur?cur.id:"",p_sessao:sid,p_evento:evento,p_mobile:/Mobi|Android|iPhone/i.test(navigator.userAgent)})}).catch(()=>{});
+    }catch(e){}
+  }
+  setInterval(()=>{ if(!document.hidden) rastrear("ativo"); },120000);
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden) rastrear("ativo"); });
+
   // aba inicial: #hash > última escolhida > Pellizzari
   let start=(location.hash||"").slice(1);
   if(!CANDS.some(c=>c.id===start)){ try{start=localStorage.getItem("apuracao-aba")||""}catch(e){start=""} }
@@ -631,6 +644,7 @@ function chaveDe(r) {
     },{refetchInterval:30000});
   }
   boot();
+  setTimeout(()=>rastrear("abriu"),300);
 
   // copiar e-mail de contato
   (function(){const b=document.getElementById("copyMail"),t=document.getElementById("mailTxt");if(!b)return;
