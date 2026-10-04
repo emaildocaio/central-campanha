@@ -111,9 +111,27 @@ tr.fl td{background:var(--fla-soft);font-weight:600}
 .empty{color:var(--muted);font-size:14px}
 svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
 .foot{font-size:12px;color:var(--muted);display:grid;gap:4px}
+
+/* Assinatura */
+.sig-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 14px;font-size:12px;color:var(--muted);padding-bottom:2px}
+.sig-top b{color:var(--ink);font-weight:700}
+.sig-top a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.sig{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;border-top:2px solid var(--line);padding-top:16px;margin-top:4px}
+.sig .who{display:grid;gap:2px}
+.sig .brandname{font:800 18px/1.1 var(--f-body);color:var(--ink);letter-spacing:-.01em}
+.sig .brandname span{color:var(--muted);font-weight:600}
+.sig .desc{font-size:13px;color:var(--muted)}
+.sig .contact{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px}
+.sig .mail{font:600 14px/1 ui-monospace,Menlo,monospace;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 10px;user-select:all}
+.copy{font:700 13px/1 var(--f-body);background:var(--c1);color:var(--on-c1);border:0;border-radius:8px;padding:10px 14px;cursor:pointer}
+.copy:focus-visible{outline:3px solid var(--c3);outline-offset:2px}
 </style>
 
 <div class="wrap">
+  <div class="sig-top">
+    <span>Apuração ao vivo · Eleições 2026 · RJ</span>
+    <span>Painel feito por <b>Refinaria</b> · Caio Farias · <a href="mailto:emaildocaio@gmail.com">emaildocaio@gmail.com</a></span>
+  </div>
   <section class="picker" aria-labelledby="pick-lbl">
     <div class="pick-head">
       <label class="pick-lbl" id="pick-lbl" for="sel">Escolha o candidato para acompanhar</label>
@@ -197,6 +215,17 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     <span>Fonte: JSON público do TSE (resultados.tse.jus.br), atualizado a cada 30 segundos. Projeção linear = votos ÷ % de seções apuradas. É só uma estimativa, porque as seções não são apuradas em ordem aleatória.</span>
     <span id="lastTxt"></span>
   </div>
+
+  <footer class="sig" aria-label="Quem fez este painel">
+    <div class="who">
+      <div class="brandname">Refinaria <span>· Caio Farias</span></div>
+      <div class="desc">Dados e inteligência para decisão. Dúvidas, ajustes ou problemas com o painel: fale com a gente.</div>
+    </div>
+    <div class="contact">
+      <span class="mail" id="mailTxt">emaildocaio@gmail.com</span>
+      <button class="copy" type="button" id="copyMail">Copiar e-mail</button>
+    </div>
+  </footer>
 </div>
 
 <script>
@@ -449,6 +478,12 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     },{refetchInterval:30000});
   }
   boot();
+
+  // copiar e-mail de contato
+  (function(){const b=document.getElementById("copyMail"),t=document.getElementById("mailTxt");if(!b)return;
+    b.addEventListener("click",()=>{const done=()=>{b.textContent="E-mail copiado";setTimeout(()=>b.textContent="Copiar e-mail",2000)};
+      try{navigator.clipboard.writeText(t.textContent).then(done,()=>{sel()})}catch(e){sel()}
+      function sel(){const r=document.createRange();r.selectNodeContents(t);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selecionado: copie com Ctrl/Cmd+C"}});})();
 })();
 </script>
 </body></html>
