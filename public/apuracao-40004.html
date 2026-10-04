@@ -6,6 +6,7 @@
 <meta property="og:image" content="https://emaildocaio.github.io/central-campanha/og-40004.png"><meta property="og:image:secure_url" content="https://emaildocaio.github.io/central-campanha/og-40004.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Apuração ao vivo · Renato Pellizzari 40004">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://emaildocaio.github.io/central-campanha/og-40004.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-40004-32.png"><link rel="apple-touch-icon" sizes="180x180" href="icon-40004-180.png">
+<link rel="preconnect" href="https://puihfdsshfpianxbjneg.supabase.co"><link rel="preconnect" href="https://resultados.tse.jus.br">
 </head><body style="margin:0"><title>Apuração Pellizzari 40004</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat+Brush&family=Zilla+Slab:wght@700&family=Archivo:wght@500;700;800&family=Big+Shoulders+Display:wght@800&family=Inter:wght@400;600;800;900&family=Libre+Baskerville:wght@700&family=Libre+Franklin:wght@400;600;800&family=Outfit:wght@400;600;800&family=Playfair+Display:wght@700&family=Poppins:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap">
@@ -405,12 +406,14 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     const at=d.atual;
     const now=new Date(d.agora||Date.now());
     if(!at){ setStatus("live","Ligado ao TSE · aguardando 1ª parcial"); $("lastTxt").textContent="Consulta: "+now.toLocaleTimeString("pt-BR"); return; }
-    $("banner").hidden=true;
-    setStatus("live","Ao vivo · atualiza a cada 30 s");
+    const maxPst=Math.max(0,...["dep","fed","pres_br","pres_rj"].map(k=>(at[k]&&at[k].meta&&at[k].meta.pst)||0));
+    const aguardando=!(maxPst>0);
+    $("banner").hidden=!aguardando;
+    setStatus("live",aguardando?"Ligado ao TSE · aguardando a 1ª parcial":(d._fonte==="tse"?"Ao vivo · direto do TSE":"Ao vivo · atualiza a cada 30 s"));
     const cd=candData(at);
     $("lastTxt").textContent="Consulta: "+now.toLocaleTimeString("pt-BR")+(cd&&cd.meta.hg?" · Totalização TSE: "+(cd.meta.dg||"")+" "+cd.meta.hg:"")+" · "+(d.snapshots||0)+" parciais gravadas";
 
-    if(cd){
+    if(cd&&!aguardando){
       const p=cd.me, m=cd.meta;
       $("cPst").textContent=pct(m.pst);
       if(p){
@@ -433,7 +436,7 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     // Lula × Flávio
     const isFla=c=>(/FL[AÁ]VIO/i.test(c.nm||"")&&/BOLSONARO/i.test(c.nm||""))||c.n==="22";
     for(const [k,sfx,elp] of [["pres_br","Br","brPst"],["pres_rj","Rj","rjPst"]]){
-      const x=at[k]; if(!x) continue;
+      const x=at[k]; if(!x||!(x.meta&&x.meta.pst>0)) continue;
       const cs=x.candidatos||[];
       const L=x.lula||cs.find(c=>c.n==="13"), F=cs.find(isFla);
       $("lula"+sfx).textContent=L?pct(L.pvap):"—"; $("lula"+sfx+"V").textContent=L?fmt(L.vap)+" votos":"";
@@ -447,7 +450,7 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
       }
     }
     const br=at.pres_br;
-    if(br&&br.candidatos&&br.candidatos.length){
+    if(br&&br.meta&&br.meta.pst>0&&br.candidatos&&br.candidatos.length){
       $("presTbl").tBodies[0].innerHTML=br.candidatos.slice(0,10).map(c=>`<tr class="${c.n==="13"?"lu":isFla(c)?"fl":""}"><td>${esc(c.nm)} <span class="mini">${esc(c.n)}</span></td><td class="r">${pct(c.pvap)}</td></tr>`).join("");
     }
     drawChart(d.historico||[]);
@@ -474,14 +477,126 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
   }
   function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r||1)));const f=r/p;return (f<=1?1:f<=2?2:f<=5?5:10)*p;}
 
+  // ---------- resumo dos arquivos do TSE (mesmo código da função no servidor) ----------
+// Resumo da apuração a partir dos arquivos "unificados" do TSE 2026 (dados/<uf>/...-u.json).
+// Mesmo código roda na Edge Function (Deno) e no navegador (fallback direto no TSE).
+const FED_WATCH = ["4013", "6577", "1331", "4060", "1818", "4000", "4030", "4040", "1330"];
+const num = (v) => {
+  if (v === null || v === undefined || v === "") return null;
+  if (typeof v === "number") return v;
+  const n = Number(String(v).replace(/\./g, "").replace(",", "."));
+  return Number.isFinite(n) ? n : null;
+};
+const int = (v) => {
+  if (v === null || v === undefined || v === "") return null;
+  if (typeof v === "number") return Math.round(v);
+  const n = Number(String(v).replace(/\D/g, ""));
+  return Number.isFinite(n) ? n : null;
+};
+function cands(j) {
+  const out = [];
+  for (const cg of (j && j.carg) || [])
+    for (const ag of cg.agr || [])
+      for (const pa of ag.par || [])
+        for (const c of pa.cand || [])
+          out.push({ n: String(c.n), nm: c.nmu || c.nm || "", cc: pa.sg || "", vap: int(c.vap) ?? 0, pvap: num(c.pvap) ?? 0, st: c.st || "", e: c.e || "", seq: int(c.seq) ?? 0 });
+  out.sort((a, b) => (b.vap - a.vap) || (a.seq - b.seq));
+  return out;
+}
+function meta(j) {
+  const s = (j && j.s) || {}, v = (j && j.v) || {};
+  return { dg: j.dg || "", hg: j.hg || "", tf: j.tf || "", st: int(s.st), ts: int(s.ts), pst: num(s.pst), vv: int(v.vv), vnom: int(v.vnom) };
+}
+function resumo(dep, fed, pbr, prj) {
+  const out = { gerado_em: new Date().toISOString() };
+  if (dep) {
+    const todos = cands(dep);
+    const i = todos.findIndex((c) => c.n === "40004");
+    const psb = todos.filter((c) => c.cc === "PSB");
+    out.dep = {
+      meta: meta(dep), total_candidatos: todos.length,
+      pellizzari: i >= 0 ? { ...todos[i], rank: i + 1, rank_psb: psb.findIndex((c) => c.n === "40004") + 1 } : null,
+      top20: todos.slice(0, 20), psb_top: psb.slice(0, 15), psb_soma_nominal: psb.reduce((s, c) => s + c.vap, 0),
+    };
+  }
+  if (fed) {
+    const todos = cands(fed);
+    const watched = {};
+    for (const n of FED_WATCH) {
+      const i = todos.findIndex((c) => c.n === n);
+      if (i < 0) continue;
+      const party = todos.filter((c) => c.cc === todos[i].cc);
+      watched[n] = { ...todos[i], rank: i + 1, rank_partido: party.findIndex((c) => c.n === n) + 1,
+        partido_soma_nominal: party.reduce((s, c) => s + c.vap, 0), partido_top: party.slice(0, 12) };
+    }
+    out.fed = { meta: meta(fed), total_candidatos: todos.length, top20: todos.slice(0, 20), watched };
+  }
+  for (const [k, j] of [["pres_br", pbr], ["pres_rj", prj]]) {
+    if (!j) continue;
+    const todos = cands(j);
+    out[k] = { meta: meta(j), lula: todos.find((c) => c.n === "13") || null, candidatos: todos };
+  }
+  return out;
+}
+function ponto(r) {
+  const fw = {};
+  if (r.fed) for (const [n, w] of Object.entries(r.fed.watched || {})) fw[n] = w.vap;
+  const fla = (x) => (x && (x.candidatos || []).find((c) => c.n === "22")) || null;
+  return {
+    t: r.gerado_em,
+    dep_pst: r.dep ? r.dep.meta.pst : null, pv: r.dep && r.dep.pellizzari ? r.dep.pellizzari.vap : null,
+    pvap: r.dep && r.dep.pellizzari ? r.dep.pellizzari.pvap : null, rk: r.dep && r.dep.pellizzari ? r.dep.pellizzari.rank : null,
+    fed_pst: r.fed ? r.fed.meta.pst : null, fw,
+    br_pst: r.pres_br ? r.pres_br.meta.pst : null, lula_br: r.pres_br && r.pres_br.lula ? r.pres_br.lula.pvap : null, fla_br: fla(r.pres_br) ? fla(r.pres_br).pvap : null,
+    rj_pst: r.pres_rj ? r.pres_rj.meta.pst : null, lula_rj: r.pres_rj && r.pres_rj.lula ? r.pres_rj.lula.pvap : null,
+  };
+}
+function chaveDe(r) {
+  return ["dep", "fed", "pres_br", "pres_rj"].map((k) => r[k] ? `${r[k].meta.dg} ${r[k].meta.hg} ${r[k].meta.st}` : "-").join("|");
+}
+
+  const TSE="https://resultados.tse.jus.br/oficial/ele2026";
+  const FONTES=[TSE+"/6259/dados/rj/rj-c0007-e006259-u.json",TSE+"/6259/dados/rj/rj-c0006-e006259-u.json",TSE+"/6257/dados/br/br-c0001-e006257-u.json",TSE+"/6257/dados/rj/rj-c0001-e006257-u.json"];
+  const INICIO=window.__INICIO__||Date.parse("2026-10-04T17:03:00-03:00");
+  const INTERVALO=window.__INTERVALO__||30000;
+  let falhas=0, histLocal=[];
+  function comTempo(ms){const c=new AbortController();setTimeout(()=>c.abort(),ms);return c.signal;}
   async function viaRest(){
-    const r=await fetch(REST,{method:"POST",headers:{apikey:ANON,"Content-Type":"application/json"},body:"{}",cache:"no-store"});
+    const r=await fetch(REST,{method:"POST",headers:{apikey:ANON,"Content-Type":"application/json"},body:"{}",cache:"no-store",signal:comTempo(10000)});
     if(!r.ok) throw new Error("HTTP "+r.status);
     return r.json();
   }
+  async function viaTSE(){
+    const js=await Promise.all(FONTES.map(u=>fetch(u+"?t="+Date.now(),{cache:"no-store",signal:comTempo(15000)}).then(r=>r.ok?r.json():null).catch(()=>null)));
+    if(!js.some(Boolean)) throw new Error("tse");
+    const r=resumo(js[0],js[1],js[2],js[3]);
+    const pt=ponto(r), ult=histLocal[histLocal.length-1];
+    if(!ult||JSON.stringify([ult.dep_pst,ult.fed_pst,ult.br_pst])!==JSON.stringify([pt.dep_pst,pt.fed_pst,pt.br_pst])) histLocal.push(pt);
+    const base=(data&&data._fonte!=="tse"&&data.historico)||[];
+    return {agora:new Date().toISOString(),atual:r,historico:base.concat(histLocal),snapshots:(data&&data.snapshots)||0,_fonte:"tse"};
+  }
+  async function tick(){
+    try{
+      const d=await viaRest();
+      const ref=Date.parse(d.verificado_em||"")||0;
+      const velho=Date.now()>INICIO && (!d.atual || Date.now()-ref>180000);
+      if(velho) throw new Error("desatualizado");
+      falhas=0; render(d);
+    }catch(e){
+      falhas++;
+      if(falhas>=2||e.message==="desatualizado"){
+        try{ render(await viaTSE()); }
+        catch(e2){ setStatus("err","Sem conexão agora. Tentando de novo em 30 s."); }
+      }else setStatus("err","Reconectando…");
+    }
+  }
   function startRest(){
-    const tick=()=>viaRest().then(render).catch(()=>setStatus("err","Sem conexão com o servidor. Tentando de novo em 30 s."));
-    tick(); setInterval(tick,30000);
+    let rodando=false;
+    const vez=async()=>{ if(rodando||document.hidden) return; rodando=true; try{ await tick(); } finally { rodando=false; } };
+    vez();
+    const loop=()=>setTimeout(()=>{ vez().finally(loop); }, INTERVALO+Math.random()*(INTERVALO/6));
+    loop();
+    document.addEventListener("visibilitychange",()=>{ if(!document.hidden) vez(); });
   }
 
   // aba inicial: #hash > última escolhida > Pellizzari
