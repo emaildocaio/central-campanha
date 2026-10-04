@@ -21,14 +21,30 @@
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;transition:background .3s}
 .wrap{max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:16px 48px;display:grid;gap:18px}
 
-/* Abas */
-.tabs{display:flex;gap:8px;overflow-x:auto;padding-block:4px 8px;scrollbar-width:thin;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg)}
-.tab{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px 6px 6px;font:600 13px/1.2 var(--f-body);cursor:pointer;white-space:nowrap}
-.tab .n{font:700 11px/1 ui-monospace,Menlo,monospace;padding:5px 7px;border-radius:999px;background:var(--tab-c);color:var(--tab-on)}
-.tab[aria-selected="true"]{background:var(--tab-c);color:var(--tab-on);border-color:var(--tab-c)}
+/* Seletor de candidato */
+.picker{background:var(--surface);border:2px solid var(--c1);border-radius:16px;padding:14px;display:grid;gap:12px;box-shadow:0 10px 30px -22px rgba(0,0,0,.5)}
+.pick-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.pick-lbl{font:800 17px/1.2 var(--f-body);color:var(--ink);display:flex;align-items:center;gap:8px}
+.pick-lbl::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--c1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") center/14px no-repeat;flex:none}
+.pick-hint{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.grp{font:700 10.5px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex-basis:100%;margin-top:4px}
+.tab{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 14px 6px 6px;font:600 14px/1.2 var(--f-body);cursor:pointer;white-space:nowrap;transition:transform .15s}
+.tab:hover{border-color:var(--tab-c);transform:translateY(-1px)}
+.tab .n{font:700 11px/1 ui-monospace,Menlo,monospace;padding:6px 8px;border-radius:999px;background:var(--tab-c);color:var(--tab-on)}
+.tab[aria-selected="true"]{background:var(--tab-c);color:var(--tab-on);border-color:var(--tab-c);box-shadow:0 0 0 3px color-mix(in srgb,var(--tab-c) 25%,transparent)}
 .tab[aria-selected="true"] .n{background:var(--tab-on);color:var(--tab-c)}
 .tab:focus-visible{outline:3px solid var(--c3);outline-offset:2px}
-
+.selwrap{display:none;position:relative}
+.selwrap::after{content:"";position:absolute;right:16px;top:50%;width:10px;height:10px;border-right:3px solid var(--on-c1);border-bottom:3px solid var(--on-c1);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+#sel{appearance:none;-webkit-appearance:none;width:100%;font:700 17px/1.2 var(--f-body);color:var(--on-c1);background:var(--c1);border:0;border-radius:12px;padding:15px 44px 15px 16px;cursor:pointer}
+#sel:focus-visible{outline:3px solid var(--c3);outline-offset:2px}
+@media (max-width:640px){
+  .picker{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;padding:10px 12px;gap:8px;border-radius:0 0 14px 14px;margin-inline:-16px;border-width:0 0 2px 0}
+  .chips{display:none}.selwrap{display:block}
+  .pick-hint{display:none}
+  .pick-lbl{font-size:14px}
+}
 header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px}
 .brand{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .tagline{font-family:var(--f-tag);font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--c3);color:var(--ink);border-radius:4px;padding:6px 12px}
@@ -42,7 +58,7 @@ h1{font-family:var(--f-display);font-weight:var(--display-weight);text-transform
 .banner{background:var(--soft);border-radius:10px;padding:12px 16px;font-size:14px}
 .banner strong{font-family:var(--f-display);font-weight:var(--display-weight);text-transform:var(--display-case);color:var(--c2)}
 
-.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;align-items:start}
 @media (max-width:840px){.grid{grid-template-columns:1fr}}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0;display:grid;gap:14px;align-content:start}
 .eyebrow{font-family:var(--f-tag);text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:var(--muted);margin:0}
@@ -98,7 +114,14 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
 </style>
 
 <div class="wrap">
-  <nav class="tabs" role="tablist" aria-label="Candidatos" id="tabs"></nav>
+  <section class="picker" aria-labelledby="pick-lbl">
+    <div class="pick-head">
+      <label class="pick-lbl" id="pick-lbl" for="sel">Escolha o candidato para acompanhar</label>
+      <span class="pick-hint" id="pickHint">10 candidatos · toque em um nome para trocar</span>
+    </div>
+    <div class="selwrap"><select id="sel" aria-label="Candidato"></select></div>
+    <div class="chips" role="tablist" aria-labelledby="pick-lbl" id="tabs"></div>
+  </section>
 
   <header class="top">
     <div class="brand">
@@ -126,11 +149,6 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
           <div class="stat"><div class="k" id="cRankPLbl">Posição no partido</div><div class="v" id="cRankP">—</div></div>
           <div class="stat"><div class="k">Seções apuradas</div><div class="v" id="cPst">—</div></div>
           <div class="stat"><div class="k">Projeção linear</div><div class="v" id="cProj">—</div></div>
-        </div>
-        <div id="metaBox" style="display:grid;gap:6px" hidden>
-          <div class="barlbl"><span id="metaLbl"></span><span id="metaPct">0%</span></div>
-          <div class="bar" aria-hidden="true"><i id="metaBar" style="width:0%"></i><span class="mark" id="metaMark"></span></div>
-          <div class="barlbl"><span id="markLbl"></span><span id="vsBase">—</span></div>
         </div>
         <div class="source" id="srcNote"></div>
       </div>
@@ -176,7 +194,7 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
   </div>
 
   <div class="foot">
-    <span>Fonte: JSON público do TSE (resultados.tse.jus.br), lido a cada 30 s por uma função no Supabase da campanha. Projeção linear = votos ÷ % de seções apuradas. É só uma estimativa, porque as seções não são apuradas em ordem aleatória.</span>
+    <span>Fonte: JSON público do TSE (resultados.tse.jus.br), atualizado a cada 30 segundos. Projeção linear = votos ÷ % de seções apuradas. É só uma estimativa, porque as seções não são apuradas em ordem aleatória.</span>
     <span id="lastTxt"></span>
   </div>
 </div>
@@ -190,7 +208,7 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
 
   // Paletas tiradas dos sites oficiais de campanha (04/10/2026). Ivanir e Heloísa não têm site: cores do partido.
   const CANDS=[
-    {id:"pellizzari",curto:"Pellizzari",a:"Pelli",b:"zzari",n:"40004",partido:"PSB",cargo:"est",slogan:"Agora é outra história",meta:35000,base:19434,baseLbl:"19.434 votos de 2022",
+    {id:"pellizzari",curto:"Pellizzari",a:"Pelli",b:"zzari",n:"40004",partido:"PSB",cargo:"est",slogan:"Agora é outra história",
      t:{bg:"#FEFCF3",ink:"#2B2B2B",line:"#E9E4D4",c1:"#2D5659","on-c1":"#FEFCF3",c2:"#D4472A","on-c2":"#FEFCF3",c3:"#EFB14A",soft:"#F7EDC7",title:"#2D5659","name-a":"#EFB14A","name-b":"#EFD98B"},
      f:{display:'"Block","Arial Black",Impact,sans-serif',tag:'"Monument","Arial Black",sans-serif',body:'"Poppins",system-ui,sans-serif',w:"400",up:"uppercase"},
      stripe:["#D4472A","#EFB14A","#4BA09E","#829255"],src:"renatopellizzari.com.br"},
@@ -239,16 +257,23 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
   const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   let data=null, cur=CANDS[0];
 
-  // ---------- abas ----------
-  const tabs=$("tabs");
-  CANDS.forEach(c=>{
-    const b=document.createElement("button");
-    b.className="tab";b.type="button";b.role="tab";b.id="tab-"+c.id;b.setAttribute("aria-controls","panel");
-    b.style.setProperty("--tab-c",c.t.c1);b.style.setProperty("--tab-on",c.t["on-c1"]);
-    b.innerHTML=`<span class="n">${c.n}</span>${esc(c.curto)}`;
-    b.addEventListener("click",()=>select(c.id,true));
-    tabs.appendChild(b);
-  });
+  // ---------- seletor: chips (desktop) + select (celular) ----------
+  const tabs=$("tabs"), sel=$("sel");
+  const GRUPOS=[["est","Deputado Estadual"],["fed","Deputado Federal"]];
+  for(const [cg,lbl] of GRUPOS){
+    const g=document.createElement("span"); g.className="grp"; g.textContent=lbl; tabs.appendChild(g);
+    const og=document.createElement("optgroup"); og.label=lbl; sel.appendChild(og);
+    CANDS.filter(c=>c.cargo===cg).forEach(c=>{
+      const b=document.createElement("button");
+      b.className="tab";b.type="button";b.setAttribute("role","tab");b.id="tab-"+c.id;b.setAttribute("aria-controls","panel");
+      b.style.setProperty("--tab-c",c.t.c1);b.style.setProperty("--tab-on",c.t["on-c1"]);
+      b.innerHTML=`<span class="n">${c.n}</span>${esc(c.curto)}`;
+      b.addEventListener("click",()=>select(c.id,true));
+      tabs.appendChild(b);
+      const o=document.createElement("option"); o.value=c.id; o.textContent=c.n+" · "+c.curto+" ("+c.partido+")"; og.appendChild(o);
+    });
+  }
+  sel.addEventListener("change",()=>{ select(sel.value,true); window.scrollTo({top:0,behavior:"smooth"}); });
   tabs.addEventListener("keydown",e=>{
     if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
     const i=CANDS.indexOf(cur), j=(i+(e.key==="ArrowRight"?1:-1)+CANDS.length)%CANDS.length;
@@ -266,7 +291,8 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     cur=CANDS.find(c=>c.id===id)||CANDS[0];
     CANDS.forEach(c=>{const b=$("tab-"+c.id);b.setAttribute("aria-selected",c===cur?"true":"false");b.tabIndex=c===cur?0:-1;});
     applyTheme(cur);
-    if(user){ try{localStorage.setItem("apuracao-aba",cur.id)}catch(e){} try{history.replaceState(null,"","#"+cur.id)}catch(e){} $("tab-"+cur.id).scrollIntoView({block:"nearest",inline:"nearest"}); }
+    sel.value=cur.id;
+    if(user){ try{localStorage.setItem("apuracao-aba",cur.id)}catch(e){} try{history.replaceState(null,"","#"+cur.id)}catch(e){} }
     renderStatic(); if(data) render(data);
   }
   function renderStatic(){
@@ -283,9 +309,6 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     $("topEyebrow").textContent=CARGO[c.cargo];
     $("h-curva").textContent="Votos do "+c.n+" conforme a apuração avança";
     $("srcNote").textContent="Identidade visual: "+c.src;
-    const mb=$("metaBox");
-    if(c.meta){ mb.hidden=false; $("metaLbl").textContent="Rumo à meta de "+fmt(c.meta)+" votos"; $("metaMark").style.left=(c.base/c.meta*100)+"%"; $("markLbl").textContent="Traço = "+c.baseLbl; }
-    else mb.hidden=true;
     ["cVotos","cPct","cRank","cRankP","cPst","cProj"].forEach(id=>$(id).textContent="—");
     $("partyTbl").tBodies[0].innerHTML=`<tr><td colspan="4" class="empty">Sem dados ainda.</td></tr>`;
     $("topTbl").tBodies[0].innerHTML=`<tr><td colspan="5" class="empty">Sem dados ainda.</td></tr>`;
@@ -339,12 +362,6 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
         const st=$("cSt"); if(st&&p.st){st.hidden=false;st.textContent=p.st;}
         const proj=m.pst>0?Math.round(p.vap/(m.pst/100)):null;
         $("cProj").textContent=proj?fmt(proj):"—";
-        if(cur.meta){
-          const mp=Math.min(100,(p.vap/cur.meta)*100);
-          $("metaBar").style.width=mp+"%";
-          $("metaPct").textContent=mp.toFixed(1).replace(".",",")+"% · "+fmt(p.vap)+" / "+fmt(cur.meta);
-          const diff=p.vap-cur.base; $("vsBase").textContent=(diff>=0?"+":"")+fmt(diff)+" vs 2022";
-        }
       }
       const party=cd.party;
       $("partySoma").textContent=party.length&&cd.partySoma?"Soma nominal do "+cur.partido+": "+fmt(cd.partySoma)+" votos":"";
