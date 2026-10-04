@@ -9,7 +9,7 @@
 :root{
   --bg:#FEFCF3; --surface:#FFFFFF; --ink:#2B2B2B; --muted:#8A8A80; --line:#ECE6D2;
   --teal:#2D5659; --aqua:#4BA09E; --red:#D4472A; --orange:#EFB14A; --sand:#EFD98B; --olive:#829255;
-  --on-teal:#FEFCF3; --teal-soft:#E3EEEC; --red-soft:#F8E1DA; --sand-soft:#F7EDC7; --chart:#2D5659;
+  --on-teal:#FEFCF3; --rival:#2F4F86; --rival-soft:#E2E8F3; --teal-soft:#E3EEEC; --red-soft:#F8E1DA; --sand-soft:#F7EDC7; --chart:#2D5659;
   --f-display:"Block","Arial Black",Impact,sans-serif;
   --f-tag:"Monument","Arial Black",sans-serif;
   --f-body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -55,8 +55,17 @@ h1 em{font-style:normal;color:var(--red)}
 .barlbl{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;font-size:12px;color:rgba(254,252,243,.8);font-variant-numeric:tabular-nums}
 
 .lula{border-top:8px solid var(--red)}
-.lula .who{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;font-family:var(--f-display);text-transform:uppercase;font-size:28px;color:var(--red)}
-.lula .num{font-family:var(--f-display);font-size:clamp(38px,4.6vw,54px);line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
+h2.vs{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;margin:0}
+.cl{color:var(--red)} .cf{color:var(--rival)} .x{color:var(--muted);font-size:.7em}
+.duel{display:grid;gap:6px;padding-top:10px;border-top:1px solid var(--line)}
+.sides{display:flex;justify-content:space-between;gap:12px}
+.sides .rt{text-align:right}
+.lula .num{font-family:var(--f-display);font-size:clamp(34px,4.2vw,48px);line-height:.95;font-variant-numeric:tabular-nums}
+.split{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line)}
+.split i{display:block;height:100%;width:0;transition:width .6s}
+.split .l{background:var(--red)} .split .f{background:var(--rival);margin-left:auto}
+.gap{font-size:13px;font-weight:600}
+tr.fl td{background:var(--rival-soft);font-weight:600}
 .tag{font-family:var(--f-tag);font-size:11px;padding:4px 8px;border-radius:4px;background:var(--red-soft);color:var(--red);text-transform:uppercase;letter-spacing:.04em}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .mini{font-size:13px;color:var(--muted)}
@@ -112,13 +121,21 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
     </section>
 
     <section class="panel lula" aria-labelledby="h-lula">
-      <p class="eyebrow" id="h-lula">Presidente · 1º turno</p>
-      <div class="who">Lula <span class="tag">PT 13</span></div>
-      <div class="pair">
-        <div><div class="place">Brasil</div><div class="num" id="lulaBr">—</div><div class="mini" id="lulaBrV">—</div><div class="mini" id="brPst">—</div></div>
-        <div><div class="place">Rio de Janeiro</div><div class="num" id="lulaRj">—</div><div class="mini" id="lulaRjV">—</div><div class="mini" id="rjPst">—</div></div>
+      <p class="eyebrow">Presidente · 1º turno</p>
+      <h2 class="vs" id="h-lula"><span class="cl">Lula</span> <span class="x">×</span> <span class="cf">Flávio</span></h2>
+      <div class="duel" id="duelBr">
+        <div class="place">Brasil <span class="mini" id="brPst"></span></div>
+        <div class="sides"><div><div class="num cl" id="lulaBr">—</div><div class="mini" id="lulaBrV"></div></div><div class="rt"><div class="num cf" id="flaBr">—</div><div class="mini" id="flaBrV"></div></div></div>
+        <div class="split" aria-hidden="true"><i class="l" id="barLBr"></i><i class="f" id="barFBr"></i></div>
+        <div class="gap" id="gapBr"></div>
       </div>
-      <div class="scroll"><table id="presTbl"><thead><tr><th>Presidente · Brasil</th><th class="r">%</th></tr></thead><tbody><tr><td colspan="2" class="empty">Sem dados ainda.</td></tr></tbody></table></div>
+      <div class="duel" id="duelRj">
+        <div class="place">Rio de Janeiro <span class="mini" id="rjPst"></span></div>
+        <div class="sides"><div><div class="num cl" id="lulaRj">—</div><div class="mini" id="lulaRjV"></div></div><div class="rt"><div class="num cf" id="flaRj">—</div><div class="mini" id="flaRjV"></div></div></div>
+        <div class="split" aria-hidden="true"><i class="l" id="barLRj"></i><i class="f" id="barFRj"></i></div>
+        <div class="gap" id="gapRj"></div>
+      </div>
+      <div class="scroll"><table id="presTbl"><thead><tr><th>Todos · Brasil</th><th class="r">%</th></tr></thead><tbody><tr><td colspan="2" class="empty">Sem dados ainda.</td></tr></tbody></table></div>
     </section>
   </div>
 
@@ -205,15 +222,24 @@ svg text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
       $("psbSoma").textContent=psb.length?"Soma nominal dos candidatos do PSB: "+fmt(dep.psb_soma_nominal)+" votos":"";
       $("psbTbl").tBodies[0].innerHTML=psb.length?psb.map((c,i)=>`<tr class="${c.n==="40004"?"me":""}"><td>${i+1}</td><td>${esc(c.nm)}</td><td class="r">${fmt(c.vap)}</td></tr>`).join(""):`<tr><td colspan="3" class="empty">Sem dados ainda.</td></tr>`;
     }
-    for(const [k,el,elv,elp] of [["pres_br","lulaBr","lulaBrV","brPst"],["pres_rj","lulaRj","lulaRjV","rjPst"]]){
+    const isFla=c=>/FL[AÁ]VIO/i.test(c.nm||"")&&/BOLSONARO/i.test(c.nm||"")||c.n==="22";
+    for(const [k,sfx,elp] of [["pres_br","Br","brPst"],["pres_rj","Rj","rjPst"]]){
       const x=at[k]; if(!x) continue;
-      $(el).textContent=x.lula?pct(x.lula.pvap):"—";
-      $(elv).textContent=x.lula?fmt(x.lula.vap)+" votos":"";
-      $(elp).textContent=pct(x.meta&&x.meta.pst)+" das seções";
+      const cs=x.candidatos||[];
+      const L=x.lula||cs.find(c=>c.n==="13"), F=cs.find(isFla);
+      $("lula"+sfx).textContent=L?pct(L.pvap):"—"; $("lula"+sfx+"V").textContent=L?fmt(L.vap)+" votos":"";
+      $("fla"+sfx).textContent=F?pct(F.pvap):"—"; $("fla"+sfx+"V").textContent=F?fmt(F.vap)+" votos":"";
+      $(elp).textContent="· "+pct(x.meta&&x.meta.pst)+" das seções";
+      if(L&&F){
+        $("barL"+sfx).style.width=(L.pvap||0)+"%"; $("barF"+sfx).style.width=(F.pvap||0)+"%";
+        const dpp=(L.pvap||0)-(F.pvap||0), dv=(L.vap||0)-(F.vap||0);
+        const g=$("gap"+sfx); g.className="gap "+(dpp>=0?"cl":"cf");
+        g.textContent=(dpp>=0?"Lula":"Flávio")+" à frente por "+Math.abs(dpp).toLocaleString("pt-BR",{maximumFractionDigits:2})+" p.p. ("+fmt(Math.abs(dv))+" votos)";
+      }
     }
     const br=at.pres_br;
     if(br&&br.candidatos&&br.candidatos.length){
-      $("presTbl").tBodies[0].innerHTML=br.candidatos.slice(0,8).map(c=>`<tr class="${c.n==="13"?"lu":""}"><td>${esc(c.nm)} <span class="mini">${esc(c.n)}</span></td><td class="r">${pct(c.pvap)}</td></tr>`).join("");
+      $("presTbl").tBodies[0].innerHTML=br.candidatos.slice(0,10).map(c=>`<tr class="${c.n==="13"?"lu":isFla(c)?"fl":""}"><td>${esc(c.nm)} <span class="mini">${esc(c.n)}</span></td><td class="r">${pct(c.pvap)}</td></tr>`).join("");
     }
     drawChart(d.historico||[]);
   }
