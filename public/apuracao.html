@@ -590,12 +590,12 @@ function chaveDe(r) {
     }
   }
   function startRest(){
-    let rodando=false;
-    const vez=async()=>{ if(rodando||document.hidden) return; rodando=true; try{ await tick(); } finally { rodando=false; } };
-    vez();
+    let rodando=false, ultimo=0;
+    const vez=async(forcar)=>{ if(rodando) return; if(!forcar&&document.hidden&&Date.now()-ultimo<120000) return; rodando=true; try{ await tick(); ultimo=Date.now(); } finally { rodando=false; } };
+    vez(true);
     const loop=()=>setTimeout(()=>{ vez().finally(loop); }, INTERVALO+Math.random()*(INTERVALO/6));
     loop();
-    document.addEventListener("visibilitychange",()=>{ if(!document.hidden) vez(); });
+    document.addEventListener("visibilitychange",()=>{ if(!document.hidden) vez(true); });
   }
 
   // aba inicial: #hash > última escolhida > Pellizzari
