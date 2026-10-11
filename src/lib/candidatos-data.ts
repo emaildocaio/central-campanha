@@ -29,6 +29,15 @@ import jari2022 from "@/data/eleicoes/candidatos/jari-2022.json";
 import jari2026 from "@/data/eleicoes/candidatos/jari-2026.json";
 import minc2022 from "@/data/eleicoes/candidatos/carlos-minc-2022.json";
 import minc2026 from "@/data/eleicoes/candidatos/carlos-minc-2026.json";
+import freixo2026 from "@/data/eleicoes/candidatos/marcelo-freixo-2026.json";
+import reimont2026 from "@/data/eleicoes/candidatos/reimont-2026.json";
+import martha2026 from "@/data/eleicoes/candidatos/martha-rocha-2026.json";
+import tatiana2026 from "@/data/eleicoes/candidatos/tatiana-roque-2026.json";
+import heloisa2026 from "@/data/eleicoes/candidatos/heloisa-helena-2026.json";
+import lindbergh2022 from "@/data/eleicoes/candidatos/lindbergh-farias-2022.json";
+import lindbergh2026 from "@/data/eleicoes/candidatos/lindbergh-farias-2026.json";
+import ivanir2026 from "@/data/eleicoes/candidatos/ivanir-dos-santos-2026.json";
+import jabbour2026 from "@/data/eleicoes/candidatos/elias-jabbour-2026.json";
 
 type ComAno = CandidatoAnoDados & { ano: number };
 
@@ -36,14 +45,15 @@ const TODOS = [
   renato2022, renato2024, freixo2018, freixo2022, reimont2018, reimont2020, reimont2022,
   renan2018, renan2022, martha2018, martha2022, tatiana2018, tatiana2022, tatiana2024,
   heloisa2022, heloisa2024, renato2026, renan2026, wagner2024, wagner2026,
-  jari2022, jari2026, minc2022, minc2026,
+  jari2022, jari2026, minc2022, minc2026, freixo2026, reimont2026, martha2026,
+  tatiana2026, heloisa2026, lindbergh2022, lindbergh2026, ivanir2026, jabbour2026,
 ] as unknown as ComAno[];
 
 // Ordem de exibição no seletor: Renato primeiro, depois os parceiros.
 const ORDEM = [
-  "renato-pellizzari", "marcelo-freixo", "reimont", "renan-ferreirinha",
+  "renato-pellizzari", "marcelo-freixo", "lindbergh-farias", "reimont", "renan-ferreirinha",
   "martha-rocha", "tatiana-roque", "heloisa-helena", "carlos-minc", "jari",
-  "wagner-tavares",
+  "wagner-tavares", "ivanir-dos-santos", "elias-jabbour",
 ];
 const ordem = (slug: string) => {
   const i = ORDEM.indexOf(slug);
@@ -82,6 +92,15 @@ const SITUACAO: Record<string, "Eleito" | "Suplente" | "Não eleito"> = {
   "wagner-tavares-2026": "Suplente",
   "jari-2026": "Eleito",
   "carlos-minc-2026": "Suplente",
+  "lindbergh-farias-2022": "Eleito",
+  "marcelo-freixo-2026": "Eleito",
+  "lindbergh-farias-2026": "Eleito",
+  "reimont-2026": "Suplente",
+  "martha-rocha-2026": "Suplente",
+  "tatiana-roque-2026": "Não eleito",
+  "heloisa-helena-2026": "Suplente",
+  "ivanir-dos-santos-2026": "Não eleito",
+  "elias-jabbour-2026": "Eleito",
 };
 
 /** Candidatos rastreados que concorreram no ano (ordenados p/ o seletor). */

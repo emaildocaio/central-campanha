@@ -28,6 +28,10 @@
       "2022": {
         "cargo": "Governador",
         "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
       }
     }
   },
@@ -44,6 +48,10 @@
         "partido": "PT"
       },
       "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
+      },
+      "2026": {
         "cargo": "Deputado Federal",
         "partido": "PT"
       }
@@ -78,6 +86,10 @@
       "2022": {
         "cargo": "Deputado Estadual",
         "partido": "PDT"
+      },
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PDT"
       }
     }
   },
@@ -96,6 +108,10 @@
       "2024": {
         "cargo": "Vereador",
         "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PSB"
       }
     }
   },
@@ -109,6 +125,10 @@
       },
       "2024": {
         "cargo": "Vereador",
+        "partido": "REDE"
+      },
+      "2026": {
+        "cargo": "Deputado Federal",
         "partido": "REDE"
       }
     }
@@ -152,6 +172,40 @@
       "2026": {
         "cargo": "Deputado Estadual",
         "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "lindbergh-farias",
+    "nome": "Lindbergh Farias",
+    "anos": {
+      "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
+      },
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PT"
+      }
+    }
+  },
+  {
+    "slug": "ivanir-dos-santos",
+    "nome": "Ivanir dos Santos",
+    "anos": {
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "elias-jabbour",
+    "nome": "Elias Jabbour",
+    "anos": {
+      "2026": {
+        "cargo": "Deputado Federal",
+        "partido": "PCdoB"
       }
     }
   }

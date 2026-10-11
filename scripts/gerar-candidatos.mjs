@@ -11,6 +11,7 @@
 //
 // Uso:  node scripts/gerar-candidatos.mjs
 //       node scripts/gerar-candidatos.mjs --so=wagner-tavares,jari   (só esses slugs)
+//       node scripts/gerar-candidatos.mjs --anos=2026                (só esses anos)
 //       TSE_DIR=/caminho/dos/csvs node scripts/gerar-candidatos.mjs  (pasta com votacao_secao_<ano>_RJ/)
 //
 // 2026: o mapa local→bairro só tem cadastro de 2022/2024; 2026 usa o fallback
@@ -29,6 +30,7 @@ const SAIDA = join(RAIZ, "src/data/eleicoes/candidatos");
 const MAPA = join(RAIZ, "src/data/eleicoes/_locais-bairro-map.json");
 const TSE_DIR = process.env.TSE_DIR || RAIZ;
 const SECAO = (ano) => join(TSE_DIR, `votacao_secao_${ano}_RJ/votacao_secao_${ano}_RJ.csv`);
+const ANOS_ARG = new Set((process.argv.find((a) => a.startsWith("--anos=")) || "").slice(7).split(",").filter(Boolean).map(Number));
 const SO = new Set((process.argv.find((a) => a.startsWith("--so=")) || "").slice(5).split(",").filter(Boolean));
 const CAPITAL = "RIO DE JANEIRO";
 
@@ -45,11 +47,13 @@ const CANDIDATOS = [
   { slug: "marcelo-freixo", nome: "Marcelo Freixo", anos: {
     2018: { sq: "190000602109", cargo: "Deputado Federal", partido: "PSOL" },
     2022: { sq: "190001609389", cargo: "Governador", partido: "PSB" },
+    2026: { sq: "190002543092", cargo: "Deputado Federal", partido: "PT" },
   } },
   { slug: "reimont", nome: "Reimont", anos: {
     2018: { sq: "190000613596", cargo: "Deputado Federal", partido: "PT" },
     2020: { sq: "190001022674", cargo: "Vereador", partido: "PT" },
     2022: { sq: "190001619218", cargo: "Deputado Federal", partido: "PT" },
+    2026: { sq: "190002543104", cargo: "Deputado Federal", partido: "PT" },
   } },
   { slug: "renan-ferreirinha", nome: "Renan Ferreirinha", anos: {
     2018: { sq: "190000622928", cargo: "Deputado Estadual", partido: "PSB" },
@@ -59,15 +63,28 @@ const CANDIDATOS = [
   { slug: "martha-rocha", nome: "Martha Rocha", anos: {
     2018: { sq: "190000622173", cargo: "Deputado Estadual", partido: "PDT" },
     2022: { sq: "190001654227", cargo: "Deputado Estadual", partido: "PDT" },
+    2026: { sq: "190002539672", cargo: "Deputado Federal", partido: "PDT" },
   } },
   { slug: "tatiana-roque", nome: "Tatiana Roque", anos: {
     2018: { sq: "190000602121", cargo: "Deputado Federal", partido: "PSOL" },
     2022: { sq: "190001645410", cargo: "Deputado Federal", partido: "PSB" },
     2024: { sq: "190002266175", cargo: "Vereador", partido: "PSB" },
+    2026: { sq: "190002538422", cargo: "Deputado Federal", partido: "PSB" },
   } },
   { slug: "heloisa-helena", nome: "Heloísa Helena", anos: {
     2022: { sq: "190001600476", cargo: "Deputado Federal", partido: "REDE" },
     2024: { sq: "190002142528", cargo: "Vereador", partido: "REDE" },
+    2026: { sq: "190002536161", cargo: "Deputado Federal", partido: "REDE" },
+  } },
+  { slug: "lindbergh-farias", nome: "Lindbergh Farias", anos: {
+    2022: { sq: "190001619207", cargo: "Deputado Federal", partido: "PT" },
+    2026: { sq: "190002543101", cargo: "Deputado Federal", partido: "PT" },
+  } },
+  { slug: "ivanir-dos-santos", nome: "Ivanir dos Santos", anos: {
+    2026: { sq: "190002538429", cargo: "Deputado Federal", partido: "PSB" },
+  } },
+  { slug: "elias-jabbour", nome: "Elias Jabbour", anos: {
+    2026: { sq: "190002543097", cargo: "Deputado Federal", partido: "PCdoB" },
   } },
   { slug: "wagner-tavares", nome: "Wagner Tavares", anos: {
     2024: { sq: "190002266188", cargo: "Vereador", partido: "PSB" },
@@ -96,6 +113,7 @@ const ESPERADO = {
   // 2026 (seção publicada pelo TSE em 06/10/2026; conferido com munzona)
   "190002537759": 6965, "190002540157": 93504, "190002537789": 26360,
   "190002537796": 34199, "190002537751": 30383,
+  "190001619207": 152219,
 };
 
 // --- Município (normalizado) -> região (mesmo de processar-tse.mjs) ------
@@ -168,7 +186,7 @@ async function main() {
   }));
   await writeFile(join(SAIDA, "_candidatos.json"), JSON.stringify(indice, null, 2) + "\n");
 
-  for (const ano of [2018, 2020, 2022, 2024, 2026]) {
+  for (const ano of [2018, 2020, 2022, 2024, 2026].filter((a) => !ANOS_ARG.size || ANOS_ARG.has(a))) {
     const alvo = new Map(); // sq -> candidato
     for (const c of CANDIDATOS) if (c.anos[ano] && (!SO.size || SO.has(c.slug))) alvo.set(c.anos[ano].sq, c);
     if (!alvo.size) { console.log(`\n${ano}: nenhum candidato rastreado`); continue; }
