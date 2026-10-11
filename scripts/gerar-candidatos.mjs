@@ -10,6 +10,11 @@
 // Município/região: exato (direto da seção).
 //
 // Uso:  node scripts/gerar-candidatos.mjs
+//       node scripts/gerar-candidatos.mjs --so=wagner-tavares,jari   (só esses slugs)
+//       TSE_DIR=/caminho/dos/csvs node scripts/gerar-candidatos.mjs  (pasta com votacao_secao_<ano>_RJ/)
+//
+// 2026: o mapa local→bairro só tem cadastro de 2022/2024; 2026 usa o fallback
+// por local (cdMun|zona|nº), e a cobertura de bairro é reportada no dataset.
 // =========================================================================
 
 import { createReadStream } from "node:fs";
@@ -22,7 +27,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const RAIZ = join(__dirname, "..");
 const SAIDA = join(RAIZ, "src/data/eleicoes/candidatos");
 const MAPA = join(RAIZ, "src/data/eleicoes/_locais-bairro-map.json");
-const SECAO = (ano) => join(RAIZ, `votacao_secao_${ano}_RJ/votacao_secao_${ano}_RJ.csv`);
+const TSE_DIR = process.env.TSE_DIR || RAIZ;
+const SECAO = (ano) => join(TSE_DIR, `votacao_secao_${ano}_RJ/votacao_secao_${ano}_RJ.csv`);
+const SO = new Set((process.argv.find((a) => a.startsWith("--so=")) || "").slice(5).split(",").filter(Boolean));
 const CAPITAL = "RIO DE JANEIRO";
 
 // índices 0-based (votacao_secao — layout idêntico 2018/2020/2022/2024)
@@ -33,6 +40,7 @@ const CANDIDATOS = [
   { slug: "renato-pellizzari", nome: "Renato Pellizzari", anos: {
     2022: { sq: "190001639149", cargo: "Deputado Estadual", partido: "PSB" },
     2024: { sq: "190002266214", cargo: "Vereador", partido: "PSB" },
+    2026: { sq: "190002537759", cargo: "Deputado Estadual", partido: "PSB" },
   } },
   { slug: "marcelo-freixo", nome: "Marcelo Freixo", anos: {
     2018: { sq: "190000602109", cargo: "Deputado Federal", partido: "PSOL" },
@@ -46,6 +54,7 @@ const CANDIDATOS = [
   { slug: "renan-ferreirinha", nome: "Renan Ferreirinha", anos: {
     2018: { sq: "190000622928", cargo: "Deputado Estadual", partido: "PSB" },
     2022: { sq: "190001603419", cargo: "Deputado Federal", partido: "PSD" },
+    2026: { sq: "190002540157", cargo: "Deputado Federal", partido: "PSD" },
   } },
   { slug: "martha-rocha", nome: "Martha Rocha", anos: {
     2018: { sq: "190000622173", cargo: "Deputado Estadual", partido: "PDT" },
@@ -60,6 +69,18 @@ const CANDIDATOS = [
     2022: { sq: "190001600476", cargo: "Deputado Federal", partido: "REDE" },
     2024: { sq: "190002142528", cargo: "Vereador", partido: "REDE" },
   } },
+  { slug: "wagner-tavares", nome: "Wagner Tavares", anos: {
+    2024: { sq: "190002266188", cargo: "Vereador", partido: "PSB" },
+    2026: { sq: "190002537789", cargo: "Deputado Estadual", partido: "PSB" },
+  } },
+  { slug: "jari", nome: "Jari", anos: {
+    2022: { sq: "190001639134", cargo: "Deputado Estadual", partido: "PSB" },
+    2026: { sq: "190002537796", cargo: "Deputado Estadual", partido: "PSB" },
+  } },
+  { slug: "carlos-minc", nome: "Carlos Minc", anos: {
+    2022: { sq: "190001639136", cargo: "Deputado Estadual", partido: "PSB" },
+    2026: { sq: "190002537751", cargo: "Deputado Estadual", partido: "PSB" },
+  } },
 ];
 
 // Auto-verificação: total RJ esperado por SQ (levantado na base)
@@ -70,6 +91,11 @@ const ESPERADO = {
   "190001600476": 38161, "190001645410": 30764, "190001654227": 61767,
   "190001639149": 19434, "190002266175": 16957, "190002142528": 11971,
   "190002266214": 6783,
+  // novos parceiros (conferidos com votacao_candidato_munzona do TSE)
+  "190002266188": 7174, "190001639134": 27288, "190001639136": 54942,
+  // 2026 (seção publicada pelo TSE em 06/10/2026; conferido com munzona)
+  "190002537759": 6965, "190002540157": 93504, "190002537789": 26360,
+  "190002537796": 34199, "190002537751": 30383,
 };
 
 // --- Município (normalizado) -> região (mesmo de processar-tse.mjs) ------
@@ -142,9 +168,9 @@ async function main() {
   }));
   await writeFile(join(SAIDA, "_candidatos.json"), JSON.stringify(indice, null, 2) + "\n");
 
-  for (const ano of [2018, 2020, 2022, 2024]) {
+  for (const ano of [2018, 2020, 2022, 2024, 2026]) {
     const alvo = new Map(); // sq -> candidato
-    for (const c of CANDIDATOS) if (c.anos[ano]) alvo.set(c.anos[ano].sq, c);
+    for (const c of CANDIDATOS) if (c.anos[ano] && (!SO.size || SO.has(c.slug))) alvo.set(c.anos[ano].sq, c);
     if (!alvo.size) { console.log(`\n${ano}: nenhum candidato rastreado`); continue; }
     console.log(`\n=== ${ano} (${alvo.size} candidatos) — lendo seção… ===`);
     const acc = new Map();

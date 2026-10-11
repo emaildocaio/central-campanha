@@ -10,6 +10,10 @@
       "2024": {
         "cargo": "Vereador",
         "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
       }
     }
   },
@@ -54,6 +58,10 @@
         "partido": "PSB"
       },
       "2022": {
+        "cargo": "Deputado Federal",
+        "partido": "PSD"
+      },
+      "2026": {
         "cargo": "Deputado Federal",
         "partido": "PSD"
       }
@@ -102,6 +110,48 @@
       "2024": {
         "cargo": "Vereador",
         "partido": "REDE"
+      }
+    }
+  },
+  {
+    "slug": "wagner-tavares",
+    "nome": "Wagner Tavares",
+    "anos": {
+      "2024": {
+        "cargo": "Vereador",
+        "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "jari",
+    "nome": "Jari",
+    "anos": {
+      "2022": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      }
+    }
+  },
+  {
+    "slug": "carlos-minc",
+    "nome": "Carlos Minc",
+    "anos": {
+      "2022": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
+      },
+      "2026": {
+        "cargo": "Deputado Estadual",
+        "partido": "PSB"
       }
     }
   }

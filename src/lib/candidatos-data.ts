@@ -21,19 +21,29 @@ import tatiana2022 from "@/data/eleicoes/candidatos/tatiana-roque-2022.json";
 import tatiana2024 from "@/data/eleicoes/candidatos/tatiana-roque-2024.json";
 import heloisa2022 from "@/data/eleicoes/candidatos/heloisa-helena-2022.json";
 import heloisa2024 from "@/data/eleicoes/candidatos/heloisa-helena-2024.json";
+import renato2026 from "@/data/eleicoes/candidatos/renato-pellizzari-2026.json";
+import renan2026 from "@/data/eleicoes/candidatos/renan-ferreirinha-2026.json";
+import wagner2024 from "@/data/eleicoes/candidatos/wagner-tavares-2024.json";
+import wagner2026 from "@/data/eleicoes/candidatos/wagner-tavares-2026.json";
+import jari2022 from "@/data/eleicoes/candidatos/jari-2022.json";
+import jari2026 from "@/data/eleicoes/candidatos/jari-2026.json";
+import minc2022 from "@/data/eleicoes/candidatos/carlos-minc-2022.json";
+import minc2026 from "@/data/eleicoes/candidatos/carlos-minc-2026.json";
 
 type ComAno = CandidatoAnoDados & { ano: number };
 
 const TODOS = [
   renato2022, renato2024, freixo2018, freixo2022, reimont2018, reimont2020, reimont2022,
   renan2018, renan2022, martha2018, martha2022, tatiana2018, tatiana2022, tatiana2024,
-  heloisa2022, heloisa2024,
+  heloisa2022, heloisa2024, renato2026, renan2026, wagner2024, wagner2026,
+  jari2022, jari2026, minc2022, minc2026,
 ] as unknown as ComAno[];
 
 // Ordem de exibição no seletor: Renato primeiro, depois os parceiros.
 const ORDEM = [
   "renato-pellizzari", "marcelo-freixo", "reimont", "renan-ferreirinha",
-  "martha-rocha", "tatiana-roque", "heloisa-helena",
+  "martha-rocha", "tatiana-roque", "heloisa-helena", "carlos-minc", "jari",
+  "wagner-tavares",
 ];
 const ordem = (slug: string) => {
   const i = ORDEM.indexOf(slug);
@@ -46,6 +56,7 @@ const ordem = (slug: string) => {
 //  • 2018 federais — Câmara dos Deputados / 56ª legislatura (Freixo eleito; Reimont
 //    e Tatiana não assumiram = suplentes).
 //  • 2020 — vereadores eleitos na cidade do Rio (Reimont, PT, reeleito).
+//  • 2026 — TSE (votacao_candidato_munzona_2026, DS_SIT_TOT_TURNO).
 const SITUACAO: Record<string, "Eleito" | "Suplente" | "Não eleito"> = {
   "marcelo-freixo-2018": "Eleito",
   "reimont-2018": "Suplente",
@@ -63,6 +74,14 @@ const SITUACAO: Record<string, "Eleito" | "Suplente" | "Não eleito"> = {
   "renato-pellizzari-2024": "Suplente",
   "tatiana-roque-2024": "Eleito",
   "heloisa-helena-2024": "Suplente",
+  "jari-2022": "Eleito",
+  "carlos-minc-2022": "Eleito",
+  "wagner-tavares-2024": "Suplente",
+  "renato-pellizzari-2026": "Suplente",
+  "renan-ferreirinha-2026": "Eleito",
+  "wagner-tavares-2026": "Suplente",
+  "jari-2026": "Eleito",
+  "carlos-minc-2026": "Suplente",
 };
 
 /** Candidatos rastreados que concorreram no ano (ordenados p/ o seletor). */

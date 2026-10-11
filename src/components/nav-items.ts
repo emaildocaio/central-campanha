@@ -41,6 +41,7 @@ export const navItems: NavItem[] = [
   { href: "/mapa-2020", label: "Eleição 2020", icon: Vote },
   { href: "/mapa-2022", label: "Eleição 2022", icon: Landmark },
   { href: "/mapa-2024", label: "Eleição 2024", icon: Vote },
+  { href: "/mapa-2026", label: "Eleição 2026", icon: Landmark },
   { href: "/de-para", label: "De Para", icon: ListTree },
   { href: "/clipping", label: "Clipping de Notícias", icon: Newspaper },
   { href: "/pauta", label: "Pauta da Semana", icon: Sparkles },
